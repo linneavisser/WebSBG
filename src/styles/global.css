@@ -1,23 +1,32 @@
 :root {
+    /* FONTS */
+    --font-family-main: 'Varta', sans-serif;
+    --font-family-accent: 'lft-etica-mono', sans-serif;
+
       /* FONT SIZES */
-  --size-body-xs: clamp(0.66rem, calc(0.64rem + 0.09vw), 0.71rem);
-  --size-body-btn: clamp(0.88rem, calc(0.83rem + 0.22vw), 1.00rem);
-  --size-body-m: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
-  --size-lg-body: clamp(1.17rem, calc(1.08rem + 0.43vw), 1.41rem);
-  --size-h4: clamp(1.56rem, calc(1.40rem + 0.77vw), 2.00rem);
-  --size-h3: clamp(2.07rem, calc(1.81rem + 1.31vw), 2.83rem);
-  --size-h2: clamp(2.76rem, calc(2.33rem + 2.15vw), 4.00rem);
-  --size-h1: clamp(3.68rem, calc(3.00rem + 3.43vw), 5.65rem);
+    --font-size-h1: clamp(2rem, 1.295774647887324rem + 3.004694835680751vw, 4rem);
+    --font-size-h2: clamp(1.5rem, 2.254vw + 0.972rem, 3rem);
+    --font-size-h3: clamp(1.25rem, 0.9859154929577465rem + 1.1267605633802815vw, 2rem);
+    --font-size-h4-lg-body: clamp(1.125rem, 0.9929577464788732rem + 0.5633802816901408vw, 1.5rem);
+    --font-size-m-body: clamp(1rem, 0.9119718309859155rem + 0.3755868544600939vw, 1.25rem);
+    --font-size-body-btn: clamp(0.875rem, 0.8309859154929577rem + 0.18779342723004694vw, 1rem);
+    --font-size-xs: clamp(0.65625rem, 0.6232394366197183rem + 0.1408450704225352vw, 0.75rem);
+    
+    /* FONT WEIGHTS */
+    --font-weight-light: 300;
+    --font-weight-book: 350;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
 
-     /* LINE HEIGHT DESKTOP */
-
-     --line-height-body-xs: 1.125rem;
-     --line-height-body: 1.375rem;
-     --line-height-lg-body: 1.625rem;
-     --line-height-h4: 2.313rem;
-     --line-height-h3: 2.813rem;
-     --line-height-h2: 3.375rem;
-     --line-height-h1: 4.063rem;
+    /* LINE HEIGHT */
+    --line-height-h1: clamp(2.8rem, 4.207vw + 1.814rem, 5.6rem);
+    --line-height-h2: clamp(2.1rem, 3.155vw + 1.361rem, 4.2rem);
+    --line-height-h3: clamp(1.75rem, 1.577vw + 1.38rem, 2.8rem);
+    --line-height-h4-lg-body: clamp(1.575rem, 0.789vw + 1.39rem, 2.1rem);
+    --line-height-m-body: clamp(1.4rem, 0.526vw + 1.277rem, 1.75rem);
+    --line-height-body: clamp(1.225rem, 0.263vw + 1.163rem, 1.4rem);
+    --line-height-xs: clamp(0.919rem, 0.197vw + 0.873rem, 1.05rem);
+     
 
   /* SPACING */
   --space-3xs: clamp(0.25rem, calc(0.25rem + 0.00vw), 0.25rem);
@@ -40,8 +49,103 @@
   --space-xl-2xl: clamp(2.63rem, calc(2.15rem + 2.39vw), 4.00rem);
   --space-2xl-3xl: clamp(3.50rem, calc(2.63rem + 4.35vw), 6.00rem);
 
+  /* COLORS */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* ALIASES */
+
 
       }
-  body{
-   font-family: adobe-caslon-pro, serif;
-  }
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* TYPESCALE */
+
+      h1{
+        font-family: var(--font-family-main);
+        font-size: var(--font-size-h1);
+        text-transform: uppercase;
+        font-weight: var(--font-weight-regular);
+        letter-spacing: 10px;
+        line-height: var(--line-height-h1);
+      }
+      
+      h2{
+        font-family: var(--font-family-main);
+        font-size: var(--font-size-h2);
+        font-weight: var(--font-weight-semibold);
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        line-height: var(--line-height-h2);
+      }
+
+      h3{
+        font-family: var(--font-family-main);
+        font-size: var(--font-size-h3);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--line-height-h3);
+      }
+
+      h4{
+        font-family: var(--font-family-main);
+        font-size: var(--font-size-h3);
+        font-weight: var(--font-weight-semibold);
+        line-height: var(--font-size-h4-lg-body);
+      }
+
+      p{
+        font-family: var(--font-family-main);
+        font-size: var(--font-size-body-btn);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--line-height-body);
+      }
+
+      .mediumBody{
+        font-size: var(--font-size-m-body);
+        line-height: var(--line-height-m-body);
+      }
+
+      .button{
+        font-family: var(--font-family-accent);
+        line-height: auto;
+        font-size: var(--font-size-body-btn);
+        letter-spacing: 0.5px;
+      }
+      
+      .overline{
+        font-family: var(--font-family-accent);
+        font-size: var(--font-size-xs);
+        line-height: var(--line-height-xs);
+        font-weight: var(--font-weight-light);
+      }
+
+      .accentBody{
+        font-family: var(--font-family-accent);
+      }
+
+      .accentSmallBody{
+        font-family: var(--font-family-accent);
+        font-weight: var(--font-weight-regular);
+        line-height: 17px;
+        font-size: 12px;
+      }
+
+        
+
+
+
+
+      /* MEDIA QUERIES */
+   @media screen and (max-width: 728px){
+    h1, h2{
+        letter-spacing: 5px;
+    }
+    .button{
+        letter-spacing: 0.25px;
+    }
+   }
