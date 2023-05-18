@@ -48,6 +48,7 @@
 
   /* ALIASES */
   --padding-body-x: var( --space-s-xl);
+  --space-16-24px: var(--space-s);
   --space-24-32px: var(--space-m);
   --space-32-48px: var(--space-l);
   --space-64-80px: var(--space-2xl);

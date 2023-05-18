@@ -9,5 +9,44 @@ import "../styles/global.css"
         <li><a href="/privacy/" class="navLinks hover-underline-animation pt-8">Privacy</a></li>
         <li><a href="/" class="navLinks hover-underline-animation pt-8">Instagram</a></li>
     </ul>
-    <p>&copy; Evelina, Linnea & Thordis 2023</p>
+    <div class="flex flex-col gap-2">
+      <p>Sally Bjerre Gaarde</p>
+      <p class="accentSmallBody">&copy; Evelina, Linnea & Thordis 2023</p>
+    </divc>
 </footer>
+
+<style>
+    
+          p, a.navLinks{
+            font-family: var(--font-family-accent);
+            font-weight: var(--font-weight-book);
+            font-size: var(--font-size-body-btn);
+          }
+    
+          .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+            color: #000000;
+          }
+          
+          .hover-underline-animation:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+          }
+          
+          .hover-underline-animation:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+    
+    
+    
+    </style>
