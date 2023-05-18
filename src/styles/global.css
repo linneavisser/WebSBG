@@ -1,4 +1,6 @@
 :root {
+
+
     /* FONTS */
     --font-family-main: 'Varta', sans-serif;
     --font-family-accent: 'lft-etica-mono', sans-serif;
@@ -35,13 +37,17 @@
   --space-2xl: clamp(4.00rem, calc(3.65rem + 1.50vw), 5.00rem);
   --space-3xl: clamp(5.00rem, calc(3.24rem + 7.51vw), 10.00rem);
   --space-4xl: clamp(10.00rem, calc(9.12rem + 3.76vw), 12.50rem);
+  --space-grid-gutter: clamp(0.75rem, calc(0.49rem + 1.13vw), 1.50rem);
+
+  /* CUSTOM SPACING PAIRS */
+  --space-s-xl: clamp(1.00rem, calc(-0.06rem + 4.51vw), 4.00rem);
 
   /* COLORS */
   --color-black: #000000;
   --color-white: #ffffff;
 
   /* ALIASES */
-  --padding-body-x: var(--space-s);
+  --padding-body-x: var( --space-s-xl);
   --space-24-32px: var(--space-m);
   --space-32-48px: var(--space-l);
   --space-64-80px: var(--space-2xl);
@@ -56,9 +62,19 @@
         padding: 0;
         box-sizing: border-box;
       }
+
       body{
         padding: 0 var(--padding-body-x);
+        background-color: var(--color-white);
       }
+
+      main{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%/4, max(80px, 100%/12)), 1fr));
+        grid-gap: var(--space-grid-gutter);
+        row-gap: 0;
+      }
+
 
       /* TYPESCALE */
 
@@ -131,8 +147,61 @@
         font-size: 12px;
       }
 
-        
+      /* NAV/HEADER */
 
+      nav{
+        filter: invert(1);
+        mix-blend-mode: difference;
+      }
+
+      a.navLinks{
+        font-family: var(--font-family-accent);
+        font-weight: var(--font-weight-book);
+        font-size: var(--font-size-body-btn);
+      }
+
+      .hover-underline-animation {
+        display: inline-block;
+        position: relative;
+        color: #000000;
+      }
+      
+      .hover-underline-animation:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #000000;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      
+      .hover-underline-animation:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      .headerFade{
+        -webkit-animation: 1.5s ease 0s normal forwards 1 fadein;
+        animation: 1.5s ease 0s normal forwards 1 fadein;
+      }
+
+      @keyframes fadein{
+        0% { opacity:0; }
+        33% { opacity:0.33; }
+        66% { opacity:0.66; }
+        100% { opacity:1; }
+    }
+    
+    @-webkit-keyframes fadein{
+        0% { opacity:0; }
+        33% { opacity:0.33; }
+        66% { opacity:0.66; }
+        100% { opacity:1; }
+    }
 
 
 

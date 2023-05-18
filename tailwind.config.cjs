@@ -4,7 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
 			spacing: {
-				"padding-header-y": "var( --space-24-32px)",
+				"padding-header-y": "var(--space-24-32px)",
+				"gap-footer":" var(--space-64-80px)",
 			}
 		},
 	},
