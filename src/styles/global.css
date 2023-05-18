@@ -65,16 +65,16 @@
       }
 
       body{
-        padding: 0 var(--padding-body-x);
+        /* padding: 0 var(--padding-body-x); */
         background-color: var(--color-white);
       }
 
-      main{
+      /* main{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%/4, max(80px, 100%/12)), 1fr));
-        grid-gap: var(--space-grid-gutter);
+        column-gap: var(--space-grid-gutter);
         row-gap: 0;
-      }
+      } */
 
 
       /* TYPESCALE */
@@ -149,11 +149,11 @@
       }
 
       /* MEDIA QUERIES */
-   @media screen and (max-width: 728px){
-    h1, h2{
-        letter-spacing: 5px;
-    }
-    .button{
-        letter-spacing: 0.25px;
-    }
-   }
+      @media screen and (max-width: 768px){
+        h1, h2{
+          letter-spacing: 5px;
+        }
+        .button{
+          letter-spacing: 0.25px;
+        }
+        }

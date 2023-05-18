@@ -2,6 +2,7 @@
 import "../styles/global.css"
 import Logo from "../svg/logo-mobile.svg"
 import LogoDesktop from '../svg/SBG-logo.svg'
+import Emblem from '../svg/logo-emblem.svg'
 ---
 
 <header class="flex flex-col py-padding-header-y "> 
@@ -10,20 +11,68 @@ import LogoDesktop from '../svg/SBG-logo.svg'
 <!-- desktop logo -->
 <a href="/" class="self-center hidden md:block"><img src={LogoDesktop} alt="Logotype desktop"></a> 
 </header>
-<nav class="sticky top-padding-header-y pb-padding-header-y">
-    <ul class="flex justify-between">
-        <li><a href="/about/" class="navLinks hover-underline-animation">About</a></li>
 
-        <li><a href="/cart/" class="navLinks hover-underline-animation">Cart</a></li>
-    </ul>
+<!-- mobile nav -->
+  <nav class="md:hidden sticky top-padding-header-y pb-padding-header-y">
+      <ul class="flex justify-between">
+          <li><a href="/about/" class="navLinks hover-underline-animation">About</a></li>
+          <li><a href="/rental/" class="navLinks hover-underline-animation">Rental</a></li>
+          <li><a href="/collections/" class="navLinks hover-underline-animation">Collections</a></li>
+          <li><a href="/cart/" class="navLinks hover-underline-animation">Cart</a></li>
+      </ul>
+  </nav>
+  
+  <section class="h-[70vh] md:hidden flex items-center justify-center">
+    <div class="flex flex-col">
+        <img class="w-[5rem]" src={Emblem} alt="Emblem logo">
+    </div>
+  </section>
+
+<!-- desktop nav -->
+<nav class="hidden md:block sticky top-padding-header-y pb-padding-header-y">
+  <ul class="flex justify-between">
+      <li><a href="/about/" class="navLinks hover-underline-animation">About</a></li>
+      <li><a href="/cart/" class="navLinks hover-underline-animation">Cart</a></li>
+  </ul>
 </nav>
 
 
+<div class="hidden md:flex justify-center pt-space-4xl">
+  <img class="w-[5rem]" src={Emblem} alt="Emblem logo">
+</div>
+
+<nav class="hidden md:block sticky top-padding-header-y pb-padding-header-y">
+  <ul class="flex justify-between gap-16">
+    <li class="invisible">About</li>
+      <li><a href="/rental/" class="navLinks hover-underline-animation">Rental</a></li>
+      <li><a href="/collections/" class="navLinks hover-underline-animation">Collections</a></li>
+      <li class="invisible">Cart</li>
+  </ul>
+</nav>
+
+<!-- desktop nav -->
+<!-- <nav class="hidden sm:block sticky top-padding-header-y pb-padding-header-y">
+  <ul class="flex justify-between">
+      <li><a href="/about/" class="navLinks hover-underline-animation">About</a></li>
+      <li><a href="/cart/" class="navLinks hover-underline-animation">Cart</a></li>
+  </ul>
+</nav>
+
+<nav class="hidden sm:flex h-[70vh] justify-center">
+  <ul class="flex items-center">
+    <li class="sticky top-padding-header-y"><a href="/rental/" class="navLinks hover-underline-animation">Rental</a></li>
+    <li><div class="flex flex-col">
+      <img class="w-[5rem]" src={Emblem} alt="Emblem logo">
+     </div></li>
+    <li class="sticky top-padding-header-y"><a href="/collections/" class="navLinks hover-underline-animation">Collections</a></li>
+  </ul>
+</nav> -->
 <style>
 
 nav{
         filter: invert(1);
         mix-blend-mode: difference;
+        padding: 0 var(--padding-body-x);
       }
 
       a.navLinks{

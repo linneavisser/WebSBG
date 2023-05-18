@@ -1,11 +1,107 @@
 ---
 import LandingLayout from '../layouts/LandingLayout.astro'
+import Video from '../img/landing/video-landing.mp4'
+import Image1 from '../img/landing/img1.webp'
+import Image2Mobile from '../img/landing/img2-mobile.webp'
 ---
 <LandingLayout>
+
+    <div class="desktopGrid">
+        <div class="col-span-full">
+            <video width="100%" autoplay loop>
+                <source src={Video} type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="mobileGrid desktopGrid pt-p-l">
+        <p class="col-span-3 col-start-2 md:col-start-6 md:col-span-7 lg:col-start-7 lg:col-span-6 ">Text about concept. Pharetra sed mauris lorem adipiscing amet lacus libero amet. Libero euismod accumsan ante et turpis faucibus eget amet. Scelerisque ac morbi rutrum varius varius in. Pretium ultrices sit sit odio turpis cursus orci.</p>
+    </div>
+
+    <!-- Mobile top layout -->
+
+        <div class="mobileGrid m-0">
+            <div class="col-span-3 pt-p-2xl md:hidden">
+                <img class="image1" src={Image1} alt="woman image">
+            </div>
+        </div>
+
+        <div class="mobileGrid pt-p-l md:hidden">
+            <p class="col-start-1 col-span-3">Text about concept. Lobortis in volutpat et leo vehicula pellentesque. In penatibus integer aliquet in eget. Habitasse tincidunt ut sed ac adipiscing.</p>
+        </div>
+
+        <div class="md:hidden pt-p-2xl">
+            <img src={Image2Mobile} alt="shirt image">
+        </div>
+
+    <!-- Desktop top layout -->
+
+            <div class="desktopGrid pt-p-2xl items-end">
+                <div class="hidden hover-img md:grid col-span-6 h-[425px]"></div>
+                <div class="hidden hover-img2 md:grid col-start-8 col-span-5  h-[333px]"></div>
+            </div>
+
+            <div class="desktopGrid">
+                <p class="hidden md:grid pt-p-l col-span-7">Text about concept. Lobortis in volutpat et leo vehicula pellentesque. In penatibus integer aliquet in eget. Habitasse tincidunt ut sed ac adipiscing.</p>
+            </div>
+
+    <!-- Rental -->
+
+    
+
+
 
 </LandingLayout>
 
 <style>
+
+.hover-img {
+    background-image: url('../img/landing/img1.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hover-img:hover {
+    background-image: url("../img/landing/img11.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hover-img2 {
+    background-image: url('../img/landing/img2.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hover-img2:hover {
+    background-image: url("../img/landing/img22.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+      @media screen and (min-width: 768px){
+      .desktopGrid{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        margin-left: 64px;
+        margin-right: 64px;
+        column-gap: var(--space-grid-gutter);
+        row-gap: 0;
+      }
+    }
+    @media screen and (max-width: 768px){
+        .mobileGrid{ 
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-left: 16px;
+        margin-right: 16px;
+        column-gap: var(--space-grid-gutter);
+        row-gap: 0;
+      }
+    }
 
 
 </style>
