@@ -28,32 +28,25 @@
     --line-height-xs: clamp(0.919rem, 0.197vw + 0.873rem, 1.05rem);
      
 
-  /* SPACING */
-  --space-3xs: clamp(0.25rem, calc(0.25rem + 0.00vw), 0.25rem);
-  --space-2xs: clamp(0.44rem, calc(0.42rem + 0.11vw), 0.50rem);
-  --space-xs: clamp(0.69rem, calc(0.67rem + 0.11vw), 0.75rem);
-  --space-s: clamp(0.88rem, calc(0.83rem + 0.22vw), 1.00rem);
-  --space-m: clamp(1.31rem, calc(1.25rem + 0.33vw), 1.50rem);
-  --space-l: clamp(1.75rem, calc(1.66rem + 0.43vw), 2.00rem);
-  --space-xl: clamp(2.63rem, calc(2.49rem + 0.65vw), 3.00rem);
-  --space-2xl: clamp(3.50rem, calc(3.33rem + 0.87vw), 4.00rem);
-  --space-3xl: clamp(5.25rem, calc(4.99rem + 1.30vw), 6.00rem);
-
-  /* One-up pairs */
-  --space-3xs-2xs: clamp(0.25rem, calc(0.16rem + 0.43vw), 0.50rem);
-  --space-2xs-xs: clamp(0.44rem, calc(0.33rem + 0.54vw), 0.75rem);
-  --space-xs-s: clamp(0.69rem, calc(0.58rem + 0.54vw), 1.00rem);
-  --space-s-m: clamp(0.88rem, calc(0.66rem + 1.09vw), 1.50rem);
-  --space-m-l: clamp(1.31rem, calc(1.07rem + 1.20vw), 2.00rem);
-  --space-l-xl: clamp(1.75rem, calc(1.32rem + 2.17vw), 3.00rem);
-  --space-xl-2xl: clamp(2.63rem, calc(2.15rem + 2.39vw), 4.00rem);
-  --space-2xl-3xl: clamp(3.50rem, calc(2.63rem + 4.35vw), 6.00rem);
+  /* SPACING CLAMPS */
+  --space-s: clamp(1.00rem, calc(0.82rem + 0.75vw), 1.50rem);
+  --space-m: clamp(1.50rem, calc(1.32rem + 0.75vw), 2.00rem);
+  --space-l: clamp(2.00rem, calc(1.65rem + 1.74vw), 3.00rem);
+  --space-2xl: clamp(4.00rem, calc(3.65rem + 1.50vw), 5.00rem);
+  --space-3xl: clamp(5.00rem, calc(3.24rem + 7.51vw), 10.00rem);
+  --space-4xl: clamp(10.00rem, calc(9.12rem + 3.76vw), 12.50rem);
 
   /* COLORS */
   --color-black: #000000;
   --color-white: #ffffff;
 
   /* ALIASES */
+  --padding-body-x: var(--space-s);
+  --space-24-32px: var(--space-m);
+  --space-32-48px: var(--space-l);
+  --space-64-80px: var(--space-2xl);
+  --space-80-160px: var(--space-3xl);
+  --space-160-200px: var(--space-4xl);
 
 
       }
@@ -62,6 +55,9 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+      body{
+        padding: 0 var(--padding-body-x);
       }
 
       /* TYPESCALE */

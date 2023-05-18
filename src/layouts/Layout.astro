@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css"
+import Header from "../components/Header.astro"
 ---
 
 <!DOCTYPE html>
@@ -16,12 +17,12 @@ import "../styles/global.css"
 		<link href="https://fonts.googleapis.com/css2?family=Varta:wght@400;600&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<main></main>
-		<slot />
-		<main></main>
+		<Header/>
+		<main>
+			<slot />
+
+
+		</main>
 	</body>
 </html>
 
-
-<stylel>
-</style>
