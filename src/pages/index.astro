@@ -46,7 +46,7 @@ import Newsletter from '../components/Newsletter.astro'
 
     <!-- Desktop top layout -->
 
-            <div class="desktopGrid pt-p-2xl items-end">
+            <div class="desktopGrid pt-p-2xl items-center">
                 <div class="hidden hover-img md:grid col-span-6 h-[425px]"></div>
                 <div class="hidden hover-img2 md:grid col-start-8 col-span-5  h-[333px]"></div>
             </div>
@@ -68,47 +68,63 @@ import Newsletter from '../components/Newsletter.astro'
     <div class="grid desktopGrid mobileGrid pt-p-4xl">
         <h1 class="col-span-full">Collections</h1>
     </div>
-        <div class="pt-[4rem] md:hidden">
-            <video width="100%" autoplay loop src={CollectionVideo}></video>
-            <div class="desktopGrid mobileGrid pt-p-s ">
-                <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
-                <p class="accentSmallBody col-span-full">Spring 2022</p>
+        <a href="/agab/">
+            <div class="pt-[4rem] desktopGrid">
+                <video class="md:col-span-6" width="100%" autoplay loop src={CollectionVideo}></video>
+                <div class="md:col-start-1 md:col-span-6 pt-p-s">
+                    <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
+                    <p class="accentSmallBody col-span-full">Spring 2022</p>
+                </div>
             </div>
-        </div>
+        </a>
 
-        <div class="pt-[6rem] mobileGrid md:hidden">
-            <img class="col-span-2 col-start-2" src={Pants} alt="pants">
-            <div class=" col-span-2 col-start-2 pt-p-s ">
-                <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
-                <p class="accentSmallBody col-span-full">Spring 2022</p>
+        <a href="/agab/">
+            <div class="pt-[6rem] mobileGrid md:hidden">
+                <img class="col-span-2 col-start-2" src={Pants} alt="pants">
+                <div class=" col-span-2 col-start-2 pt-p-s ">
+                    <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
+                    <p class="accentSmallBody col-span-full">Spring 2022</p>
+                </div>
             </div>
-        </div>
+        </a>
 
-        <div class="pt-[4rem] mobileGrid md:hidden">
-            <img class="col-span-3 col-start-2" src={Lichen} alt="lichen">
-            <div class=" col-span-3 col-start-2 pt-p-s ">
-                <p class="accentBody col-span-full">The Lichen Project</p>
-                <p class="accentSmallBody col-span-full">Spring 2022</p>
+        <a href="/lichen/">
+            <div class="pt-[4rem] mobileGrid md:hidden">
+                <img class="col-span-3 col-start-2" src={Lichen} alt="lichen">
+                <div class=" col-span-3 col-start-2 pt-p-s ">
+                    <p class="accentBody col-span-full">The Lichen Project</p>
+                    <p class="accentSmallBody col-span-full">Spring 2022</p>
+                </div>
             </div>
-        </div>
+        </a>
 
-        <div class="pt-[3.5rem] mobileGrid md:hidden">
-            <img class="col-span-2 col-start-1" src={Contrapposto} alt="Contrapposto">
-            <div class=" col-span-2 col-start-1 pt-p-s ">
-                <p class="accentBody col-span-full">The Contrapposto Concept</p>
-                <p class="accentSmallBody col-span-full">Spring 2022</p>
+        <a href="/contrapposto/">
+            <div class="pt-[3.5rem] mobileGrid md:hidden">
+                <img class="col-span-2 col-start-1" src={Contrapposto} alt="Contrapposto">
+                <div class=" col-span-2 col-start-1 pt-p-s ">
+                    <p class="accentBody col-span-full">The Contrapposto Concept</p>
+                    <p class="accentSmallBody col-span-full">Spring 2022</p>
+                </div>
             </div>
-        </div>
+        </a>
 
-        <div class="pt-[4rem] pb-[10rem] md:hidden">
-            <img class="col-span-full" src={Shadow} alt="Shadow">
-            <div class="desktopGrid mobileGrid pt-p-s ">
-                <p class="accentBody col-span-full">Shadow Collection</p>
-                <p class="accentSmallBody col-span-full">Spring 2022</p>
+        <a href="/shadow/">
+            <div class="pt-[4rem] pb-[10rem] md:hidden">
+                <img class="col-span-full" src={Shadow} alt="Shadow">
+                <div class="desktopGrid mobileGrid pt-p-s ">
+                    <p class="accentBody col-span-full">Shadow Collection</p>
+                    <p class="accentSmallBody col-span-full">Spring 2022</p>
+                </div>
             </div>
-        </div>
+        </a>
 
          <!-- Collections Desktop -->
+
+         <a href="/abag/">
+            <div class="">
+
+            </div>
+        </a>
 
          <!-- Email Subscription -->
         <div class="mobileGrid desktopGrid">
