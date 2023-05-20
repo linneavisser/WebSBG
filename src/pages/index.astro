@@ -4,6 +4,15 @@ import Video from '../img/landing/video-landing.mp4'
 import Image1 from '../img/landing/img1.webp'
 import Image2Mobile from '../img/landing/img2-mobile.webp'
 import Cards from '../components/Cards.astro'
+import CollectionVideo from '../img/landing/collections-vid.mp4'
+import Contrapposto from '../img/landing/contrapposto.webp'
+import Lichen from '../img/landing/lichen.webp'
+import Pants from '../img/landing/pants.webp'
+import Shadow from '../img/landing/shadow.webp'
+import Tshirt from '../img/landing/t-shirt-hover2.webp'
+import Newsletter from '../components/Newsletter.astro'
+
+
 ---
 <LandingLayout>
 
@@ -54,12 +63,57 @@ import Cards from '../components/Cards.astro'
     <a class="links links-animation grid col-span-full justify-end pt-p-m" href='/rental/'>See all</a>
     </section>
 
-    <!-- Collections -->
+    <!-- Collections Mobile -->
 
-    <section class="grid desktopGrid mobileGrid pt-p-4xl">
-        <h1>Collections</h1>
+    <div class="grid desktopGrid mobileGrid pt-p-4xl">
+        <h1 class="col-span-full">Collections</h1>
+    </div>
+        <div class="pt-[4rem] md:hidden">
+            <video width="100%" autoplay loop src={CollectionVideo}></video>
+            <div class="desktopGrid mobileGrid pt-p-s ">
+                <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
+                <p class="accentSmallBody col-span-full">Spring 2022</p>
+            </div>
+        </div>
 
-    </section>
+        <div class="pt-[6rem] mobileGrid md:hidden">
+            <img class="col-span-2 col-start-2" src={Pants} alt="pants">
+            <div class=" col-span-2 col-start-2 pt-p-s ">
+                <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
+                <p class="accentSmallBody col-span-full">Spring 2022</p>
+            </div>
+        </div>
+
+        <div class="pt-[4rem] mobileGrid md:hidden">
+            <img class="col-span-3 col-start-2" src={Lichen} alt="lichen">
+            <div class=" col-span-3 col-start-2 pt-p-s ">
+                <p class="accentBody col-span-full">The Lichen Project</p>
+                <p class="accentSmallBody col-span-full">Spring 2022</p>
+            </div>
+        </div>
+
+        <div class="pt-[3.5rem] mobileGrid md:hidden">
+            <img class="col-span-2 col-start-1" src={Contrapposto} alt="Contrapposto">
+            <div class=" col-span-2 col-start-1 pt-p-s ">
+                <p class="accentBody col-span-full">The Contrapposto Concept</p>
+                <p class="accentSmallBody col-span-full">Spring 2022</p>
+            </div>
+        </div>
+
+        <div class="pt-[4rem] pb-[10rem] md:hidden">
+            <img class="col-span-full" src={Shadow} alt="Shadow">
+            <div class="desktopGrid mobileGrid pt-p-s ">
+                <p class="accentBody col-span-full">Shadow Collection</p>
+                <p class="accentSmallBody col-span-full">Spring 2022</p>
+            </div>
+        </div>
+
+         <!-- Collections Desktop -->
+
+         <!-- Email Subscription -->
+        <div class="mobileGrid desktopGrid">
+            <Newsletter/>
+        </div>
 
 
 
