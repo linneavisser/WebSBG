@@ -130,7 +130,7 @@
         letter-spacing: 0.5px;
       }
       
-      .overline{
+      .overlinep{
         font-family: var(--font-family-accent);
         font-size: var(--font-size-xs);
         line-height: var(--line-height-xs);
@@ -146,6 +146,14 @@
         font-weight: var(--font-weight-regular);
         line-height: 17px;
         font-size: 12px;
+      }
+
+      .links{
+        font-family: var(--font-family-accent);
+        font-size: var(--font-size-body-btn);
+        line-height: var(--line-height-body);
+        font-weight: var(--font-weight-light);
+
       }
 
       /* MEDIA QUERIES */
