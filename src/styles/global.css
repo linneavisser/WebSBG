@@ -81,9 +81,9 @@
 
       h1{
         font-family: var(--font-family-main);
-        font-size: var(--font-size-h1);
+        font-size: var(--font-size-h1) !important;
         text-transform: uppercase;
-        font-weight: var(--font-weight-regular);
+        font-weight: var(--font-weight-regular) !important;
         letter-spacing: 5px;
         line-height: var(--line-height-h1);
       }
