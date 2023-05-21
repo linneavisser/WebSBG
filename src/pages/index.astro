@@ -69,9 +69,9 @@ import Newsletter from '../components/Newsletter.astro'
         <h1 class="col-span-full">Collections</h1>
     </div>
         <a href="/agab/">
-            <div class="pt-[4rem] desktopGrid">
-                <video class="md:col-span-6" width="100%" autoplay loop src={CollectionVideo}></video>
-                <div class="md:col-start-1 md:col-span-6 pt-p-s">
+            <div class="pt-[4rem] md:hidden">
+                <video class="" width="100%" autoplay loop src={CollectionVideo}></video>
+                <div class="mobileGrid pt-p-s">
                     <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
                     <p class="accentSmallBody col-span-full">Spring 2022</p>
                 </div>
@@ -120,11 +120,71 @@ import Newsletter from '../components/Newsletter.astro'
 
          <!-- Collections Desktop -->
 
-         <a href="/abag/">
-            <div class="">
+         <div class="hidden md:grid desktopGrid">
+             <a class="md:col-start-1 md:col-span-6" href="/agab/">
+                <div class="pt-[4rem]">
+                    <video class="" width="100%" autoplay loop src={CollectionVideo}></video>
+                    <div class="pt-p-s">
+                        <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
+                        <p class="accentSmallBody col-span-full">Spring 2022</p>
+                    </div>
+                </div>
+            </a>
+    
+             <a class="col-span-3 col-start-7" href="/agab/">
+                <div class="pt-[6rem]">
+                    <img class="" src={Pants} alt="pants">
+                    <div class=" pt-p-s ">
+                        <p class="accentBody col-span-full">Abject Garment, Absent Body</p>
+                        <p class="accentSmallBody col-span-full">Spring 2022</p>
+                    </div>
+                </div>
+            </a>
 
-            </div>
-        </a>
+            <a class="col-span-3 col-start-10" href="/lichen/">
+                <div class="pt-[4rem]">
+                    <img class="" src={Lichen} alt="lichen">
+                    <div class="pt-p-s ">
+                        <p class="accentBody col-span-full">The Lichen Project</p>
+                        <p class="accentSmallBody col-span-full">Spring 2022</p>
+                    </div>
+                </div>
+            </a>
+         </div>
+
+         <div class="hidden md:grid desktopGrid">
+            <a class="md:col-start-1 md:col-span-4" href="/agab/">
+                <div class="pt-[4rem]">
+                    <img class="" src={Tshirt} alt="t-shirt">
+                    <div class="pt-p-s">
+                        <p class="accentBody">Abject Garment, Absent Body</p>
+                        <p class="accentSmallBody">Spring 2022</p>
+                    </div>
+                </div>
+            </a>
+         </div>
+
+         <div class="hidden md:grid desktopGrid">
+            <a class="md:col-start-5 md:col-span-4" href="/contrapposto/">
+                <div class="">
+                    <img class="" src={Contrapposto} alt="Contrapposto">
+                    <div class="pt-p-s ">
+                        <p class="accentBody">The Contrapposto Concept</p>
+                        <p class="accentSmallBody">Spring 2022</p>
+                    </div>
+                </div>
+            </a>
+    
+            <a class="md:col-start-9 md:col-span-4" href="/shadow/">
+                <div class="">
+                    <img class="" src={Shadow} alt="Shadow">
+                    <div class="pt-p-s ">
+                        <p class="accentBody">Shadow Collection</p>
+                        <p class="accentSmallBody">Spring 2022</p>
+                    </div>
+                </div>
+            </a>
+         </div>
 
          <!-- Email Subscription -->
         <div class="mobileGrid desktopGrid">
