@@ -84,7 +84,7 @@
         font-size: var(--font-size-h1);
         text-transform: uppercase;
         font-weight: var(--font-weight-regular);
-        letter-spacing: 10px;
+        letter-spacing: 5px;
         line-height: var(--line-height-h1);
       }
       
@@ -93,7 +93,7 @@
         font-size: var(--font-size-h2);
         font-weight: var(--font-weight-semibold);
         text-transform: uppercase;
-        letter-spacing: 10px;
+        letter-spacing: 5px;
         line-height: var(--line-height-h2);
       }
 
