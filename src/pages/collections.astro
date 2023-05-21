@@ -1,31 +1,96 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro';
+import AGAB from '../img/categories/AGAB-beigedress.webp';
+import Shadow from '../img/categories/shadow-flip.webp';
+import Video from '../img/categories/ny-vid-sally-comp.mp4';
+import Lichen from '../img/categories/lichen-p.webp'
 ---
 <Layout>
-<div class="flex flex-col px-body-x h-[80vh] justify-end text-right">
-    <a href="/agab/" class="flex flex-col items-end">
+<!-- <div class="flex flex-col px-body-x h-[80vh] justify-end text-right gap-10">
+    <a href="/agab/" class="flex flex-col items-end gap-1">
         <h1 class="colh1">
             Abject Garment, Absent Body
         </h1>
         <p class="accentBody">Spring 2022</p>
     </a>
-    <a href="/shadow/" class="flex flex-col items-end">
+    <a href="/shadow/" class="flex flex-col items-end gap-1">
         <h1 class="colh1">
             The Shadow Collection
         </h1>
         <p class="accentBody">Spring 2022</p>
     </a>
-    <a href="/contrapposto/" class="flex flex-col items-end">
+    <a href="/contrapposto/" class="flex flex-col items-end gap-1">
         <h1 class="colh1">
             The Contrapposto Concept
         </h1>
         <p class="accentBody">Spring 2022</p>
     </a>
-    <a href="/lichen/" class="flex flex-col items-end">
+    <a href="/lichen/" class="flex flex-col items-end gap-1">
         <h1 class="colh1">
             The Lichen Project
         </h1>
         <p class="accentBody">Spring 2022</p>
     </a>
+</div> -->
+
+<!-- DESKTOP -->
+
+<div class="desktopGrid">
+    <a href="/agab/" class=" collHover flex flex-col items-end gap-1 col-start-8 col-span-5 pt-64 row-start-1">
+        <h1 class="colh1 text-end">
+            Abject Garment, Absent Body
+        </h1>
+        <p class="accentBody">Spring 2022</p>
+    </a>
+    <img src={AGAB} alt="Dress from Abject Garment, Absent Body" class="col-start-1 col-span-5  row-start-1 row-span-5 -z-10">
+    <a href="/agab/" class="collHover flex flex-col items-end gap-1 col-start-8 col-span-5 pt-10 row-start-2">
+        <h1 class="colh1 text-end">
+           Shadow Collection
+        </h1>
+        <p class="accentBody">Spring 2022</p>
+    </a>
+    <img src={Shadow} alt="Image from Shadow collection" class="absolute -z-20 w-[100%] h-[100%] object-cover">
+    <a href="/agab/" class="collHover flex flex-col items-end gap-1 col-start-8 col-span-5 pt-10 row-start-3">
+        <h1 class="colh1 text-end">
+            The Contrapposto Concept
+        </h1>
+        <p class="accentBody">Spring 2022</p>
+    </a>
+    <video src={Video} autoplay loop class="col-start-1 col-span-7 row-start-1 row-span-6 pt-20 -z-10"></video>
+    <a href="/agab/" class="collHover flex flex-col items-end gap-1 col-start-8 col-span-5 pt-10 row-start-4">
+        <h1 class="colh1 text-end">
+           The Lichen Project
+        </h1>
+        <p class="accentBody">Spring 2022</p>
+    </a>
+    <img src={Lichen} alt="Image from Lichen Project" class="row-start-1 row-span-5 col-start-3 col-span-2 -z-10">
 </div>
+
 </Layout>
+
+<style>
+.collHover + img {
+  opacity: 0;
+  transform: translate(-5%, -5%) scale(0.5);
+  transition: transform 250ms, opacity 250ms;
+  pointer-events: none;
+  width: min(50vw, 800px);
+}
+
+.collHover:hover + img {
+  opacity: 1;
+  transform: translate(-5%, -5%) scale(1);
+}
+.collHover + video {
+  opacity: 0;
+  transform: translate(-5%, -5%) scale(0.5);
+  transition: transform 250ms, opacity 250ms;
+  pointer-events: none;
+  width: min(50vw, 800px);
+}
+
+.collHover:hover + video {
+  opacity: 1;
+  transform: translate(-5%, -5%) scale(1);
+}
+</style>

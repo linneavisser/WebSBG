@@ -90,11 +90,11 @@
 
       .colh1{
         font-family: var(--font-family-main);
-        font-size: var(--font-size-h2) !important;
+        font-size: var(--font-size-h4-lg-body) !important;
         font-weight: var(--font-weight-regular) !important;
         text-transform: none !important;
         letter-spacing: 5px;
-        line-height: var(--line-height-h1);
+        line-height: var(--line-height-h4-lg-body);
       }
       
       h2{
@@ -148,6 +148,7 @@
 
       .accentBody{
         font-family: var(--font-family-accent);
+        font-weight: var(--font-weight-light);
       }
 
       .accentSmallBody{
