@@ -11,7 +11,7 @@ import Image2Mobile from '../img/landing/img2-mobile.webp'
             </div>
             <div class="infobox">
                 <h5 class="accentBody name">AGAB Skirt</h5>
-                <p class="price overlinep">From 1000 dkk</p>
+                <p class="overlinep">From <span class="price">1000</span> dkk</p>
             </div>
         </article>
    </div>
@@ -19,46 +19,81 @@ import Image2Mobile from '../img/landing/img2-mobile.webp'
 
 <script is:inline>
 
-window.addEventListener("DOMContentLoaded", init);
+// window.addEventListener("DOMContentLoaded", init);
 
-function init(event) {
-  let params = new URLSearchParams(document.location.search);
-  let id = params.get("id");
-  let url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
+const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
 
-  if (id) {
-    url += `/${id}`;
-  }
+fetch(url)
+.then(function(res){
+  return res.json();
+})
+.then(function(data){
+  handleProductList(data);
+});
 
-  getData(url + "?_embed");
-
-  async function getData(fetchurl) {
-    console.log(fetchurl);
-    let result = await fetch(fetchurl);
-    if (id) {
-      showSingleProduct(await result.json());
-    } else {
-      showProducts(await result.json());
-    }
-  }
+function handleProductList(data){
+  console.log(data)
+  data.forEach(showProduct);
 }
 
-function showProducts(productArray) {
-  console.log(productArray);
+function showProduct(garment){
+  console.log(garment);
   const template = document.querySelector(".productlistTemplate").content;
-  const parentElement = document.querySelector(".productlist");
-  productArray.forEach((garment) => {
-    const copy = template.cloneNode(true);
-    copy.querySelector(".name").textContent = garment.title.rendered;
-    copy
+  const copy = template.cloneNode(true);
+  //change content
+  copy.querySelector(".price").textContent = `${garment.price_3days}`;
+  copy.querySelector(".name").textContent = `${garment.title.rendered}`;
+  copy
       .querySelector("a")
       .setAttribute("href", `/productview/?id=${garment.id}`);
-    copy.querySelector(".price").textContent = garment.price;
-    copy.querySelector(".image").src =
-      garment.main_embedded[
-        "wp:featuredmedia"
-      ][0].media_details.sizes.medium_large.source_url;
-    parentElement.appendChild(copy);
-  });
+  copy.querySelector(".mainImage").src = garment.main_image.guid;
+  copy.querySelector(".mainImage").src = garment.main_image.guid;
+
+  const parent = document.querySelector(".garmentlist");
+  parent.appendChild(copy);
 }
+
+
+
+
+// function init(event) {
+//   let params = new URLSearchParams(document.location.search);
+//   let id = params.get("id");
+//   let url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
+
+//   if (id) {
+//     url += `/${id}`;
+//   }
+
+//   getData(url + "?_embed");
+
+//   async function getData(fetchurl) {
+//     console.log(fetchurl);
+//     let result = await fetch(fetchurl);
+//     if (id) {
+//       showSingleGarment(await result.json());
+//     } else {
+//       showGarments(await result.json());
+//     }
+//   }
+// }
+
+// function showGarments(productArray) {
+//   console.log(productArray);
+//   const template = document.querySelector(".productlistTemplate").content;
+//   const parentElement = document.querySelector(".productlist");
+//   productArray.forEach((garment) => {
+//     const copy = template.cloneNode(true);
+//     copy.querySelector(".name").textContent = garment.title.rendered;
+//     copy
+//       .querySelector("a")
+//       .setAttribute("href", `/productview/?id=${garment.id}`);
+//     copy.querySelector(".price").textContent = garment.price;
+//     copy.querySelector(".image").src =
+//       garment.main_embedded[
+//         "wp:featuredmedia"
+//       ][0].media_details.sizes.medium_large.source_url;
+//     parentElement.appendChild(copy);
+//   });
+// }
         </script>
