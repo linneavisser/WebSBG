@@ -1,13 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Agabvid from '../videos-sally/agab-landing.mp4';
 ---
 <Layout>
-
-    <p>love</p>
+    <div class="overlinep px-body-x"> <a class="hover-underline-animation" href="/collections/">Collections</a> / Abject Garment, Absent Body</div>
+    
+    <video width="100%" autoplay loop>
+        <source src={Agabvid} type="video/mp4">
+    </video>
+    <section class="mobileGrid">
+        <h1 class="col-span-4 py-p-l">Abject Garment, Absent Body</h1>
+        
+     
+     
+     </section>
 
 </Layout>
 
 <style>
+   /* UNDERLINE HOVER EFFECT*/
+    .hover-underline-animation {
+       display: inline-block;
+       position: relative;
+       color: #000000;
+     }
+    
+     .hover-underline-animation:after {
+       content: '';
+       position: absolute;
+       width: 100%;
+       transform: scaleX(0);
+       height: 0.5px;
+       bottom: 0;
+       left: 0;
+       background-color: #000000;
+       transform-origin: bottom right;
+       transition: transform 0.25s ease-out;
+     }
+    
+     .hover-underline-animation:hover:after {
+       transform: scaleX(1);
+       transform-origin: bottom left;}
+
 
 
 </style>
