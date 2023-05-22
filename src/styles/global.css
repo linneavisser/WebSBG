@@ -88,6 +88,7 @@
         line-height: var(--line-height-h1);
       }
 
+
       .colh1{
         font-family: var(--font-family-main);
         font-size: var(--font-size-h4-lg-body) !important;
@@ -97,7 +98,7 @@
         line-height: var(--line-height-h4-lg-body);
       }
       
-      h2{
+       .alth1{
         font-family: var(--font-family-main);
         font-size: var(--font-size-h2);
         font-weight: var(--font-weight-semibold);
@@ -106,14 +107,14 @@
         line-height: var(--line-height-h2);
       }
 
-      h3{
+      h2{
         font-family: var(--font-family-main);
         font-size: var(--font-size-h3);
         font-weight: var(--font-weight-regular);
         line-height: var(--line-height-h3);
       }
 
-      h4{
+      h3{
         font-family: var(--font-family-main);
         font-size: var(--font-size-h3);
         font-weight: var(--font-weight-semibold);
@@ -168,8 +169,8 @@
 
       /* MEDIA QUERIES */
       @media screen and (max-width: 768px){
-        h1, h2{
-          letter-spacing: 5px;
+        h1, .alth1{
+          letter-spacing: 2.5px;
         }
         .button{
           letter-spacing: 0.25px;
