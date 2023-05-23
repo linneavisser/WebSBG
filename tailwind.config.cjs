@@ -25,7 +25,8 @@ module.exports = {
 
 			gridTemplateColumns: {
 				"mobile": "repeat(4, 1fr)",
-				"desktop": "repeat(12, 1fr)",	
+				"desktop": "repeat(12, 1fr)",
+				"product": "7fr 5fr"	
 			  },
 		},
 	},

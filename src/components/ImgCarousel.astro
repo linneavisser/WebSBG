@@ -1,0 +1,121 @@
+---
+import ArrowLeft from "../svg/icons/arrow-left.svg"
+import ArrowRight from "../svg/icons/arrow-right.svg"
+---
+    <div class="slideshow-container fade col-span-full">
+    
+        <!-- Full images with numbers and message Info -->
+        <div class="Containers">
+          <img class="img1" src="" style="width:100%">
+        </div>
+      
+        <div class="Containers">
+          <img class="img2" src="" style="width:100%">
+        </div>
+      
+        <div class="Containers">
+          <img class="img3" src="" style="width:100%">
+        </div>
+
+        <!-- Back and forward buttons -->
+        <a class="Back" onclick="plusSlides(-1)"><img src={ArrowLeft} alt="arrow left"></a>
+        <a class="forward" onclick="plusSlides(1)"><img src={ArrowRight} alt="arrow right"></a>
+      </div>
+      <br>
+      
+    
+  <style>
+    * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+}
+
+/* Make the images invisible by default */
+.Containers {
+  display: none;
+}
+
+/* forward & Back buttons */
+.Back, .forward {
+  cursor: pointer;
+  position: absolute;
+  top: 24rem;
+  width: auto;
+  margin-top: -23px;
+  padding: 17px;
+  color: grey;
+  font-weight: bold;
+  font-size: 19px;
+  transition: 0.4s ease;
+  border-radius: 0 5px 5px 0;
+  user-select: none;
+}
+
+/* Place the "forward button" to the right */
+.forward {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+/*when the user hovers,add a black background with some little opacity */
+.Back:hover, .forward:hover {
+  background-color: rgba(221, 221, 221, 0.8);
+}
+
+
+/* The circles or bullets and indicators */
+
+.enable, .dots:hover {
+  background-color: #717161;
+}
+
+/* Faint animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.4s;
+  animation-name: fade;
+  animation-duration: 1.4s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .5}
+  to {opacity: 2}
+}
+
+@keyframes fade {
+  from {opacity: .5}
+  to {opacity: 2}
+}
+  </style>
+
+  <script is:inline>
+  var slidePosition = 1;
+SlideShow(slidePosition);
+
+// forward/Back controls
+function plusSlides(n) {
+  SlideShow(slidePosition += n);
+}
+
+//  images controls
+function currentSlide(n) {
+  SlideShow(slidePosition = n);
+}
+
+function SlideShow(n) {
+  var i;
+  var slides = document.getElementsByClassName("Containers");
+
+  if (n > slides.length) {slidePosition = 1}
+  if (n < 1) {slidePosition = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+
+  slides[slidePosition-1].style.display = "block";
+
+} 
+  </script>

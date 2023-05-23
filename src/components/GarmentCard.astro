@@ -1,12 +1,10 @@
----
-import Image2Mobile from '../img/landing/img2-mobile.webp'
----
+
 <template class="productlistTemplate">
    <div class="productlist">
         <article class="col-span-2 md:col-span-3">
             <div class="productImg">
                 <a href="/productview/?id=">
-                <img class="mainImage" src={Image2Mobile} alt="product">
+                <img class="mainImage" src="" alt="product">
                 </a>
             </div>
             <div class="infobox">
@@ -20,6 +18,9 @@ import Image2Mobile from '../img/landing/img2-mobile.webp'
 <script is:inline>
 
 // window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("DOMContentLoaded", init);
+
+function init(event) {
 
 const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
 
@@ -35,6 +36,7 @@ function handleProductList(data){
   console.log(data)
   data.forEach(showProduct);
 }
+}
 
 function showProduct(garment){
   console.log(garment);
@@ -45,8 +47,7 @@ function showProduct(garment){
   copy.querySelector(".name").textContent = `${garment.title.rendered}`;
   copy
       .querySelector("a")
-      .setAttribute("href", `/productview/?id=${garment.id}`);
-  copy.querySelector(".mainImage").src = garment.main_image.guid;
+      .setAttribute("href", `/singlegarment/?id=${garment.id}`);
   copy.querySelector(".mainImage").src = garment.main_image.guid;
 
   const parent = document.querySelector(".garmentlist");
@@ -54,6 +55,7 @@ function showProduct(garment){
 }
 
 
+// NOT IN USE
 
 
 // function init(event) {
