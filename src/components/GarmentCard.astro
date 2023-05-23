@@ -1,12 +1,10 @@
----
-import Image2Mobile from '../img/landing/img2-mobile.webp'
----
+
 <template class="productlistTemplate">
    <div class="productlist">
         <article class="col-span-2 md:col-span-3">
             <div class="productImg">
                 <a href="/productview/?id=">
-                <img class="mainImage" src={Image2Mobile} alt="product">
+                <img class="mainImage" src="" alt="product">
                 </a>
             </div>
             <div class="infobox">
@@ -20,6 +18,9 @@ import Image2Mobile from '../img/landing/img2-mobile.webp'
 <script is:inline>
 
 // window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("DOMContentLoaded", init);
+
+function init(event) {
 
 const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
 
@@ -34,6 +35,7 @@ fetch(url)
 function handleProductList(data){
   console.log(data)
   data.forEach(showProduct);
+}
 }
 
 function showProduct(garment){

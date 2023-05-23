@@ -9,21 +9,30 @@ import ImgCarousel from '../components/ImgCarousel.astro'
         <a class="name" href="#">Product Name</a>
     </div>
 
-        <div class="flex flex-col-reverse md:grid md:grid-cols-2">
-                <section class="flex flex-col px-body-x">
+        <div class="flex flex-col-reverse md:grid md:grid-cols-product">
+                <section class="flex flex-col pl-body-x md:pr-[10rem] pt-space-64-80">
                     <div class="pt-space-24-32">
                         <p class="collection">Collection Name</p>
-                        <h1 class="title colh1">Name Of Product</h1>
+                        <h1 class="title">Name Of Product</h1>
                     </div>
-                    <div class="pt-space-24-32">
-                        <p>Product details: <span class="details">1</span></p>
-                        <p>Material: <span class="material">2</span></p>
-                        <p>Size: <span class="size">3</span></p>
+                    <div class="pt-space-24-32 flex flex-col gap-8">
+                        <div>
+                            <p class="mediumBody">Product details</p>
+                            <p class="details">1</p>
+                        </div>
+                        <div>
+                            <p class="mediumBody">Material</p>
+                            <p class="material">2</p>
+                        </div>
+                        <div>
+                            <p class="mediumBody">Size</p> 
+                            <p class="size">3</p>
+                        </div>
                     </div>
                     <div class="pt-space-24-32">
                         <form>
                             <fieldset>
-                              <legend>How long</legend>
+                              <legend class="mediumBody">How long</legend>
                           
                               <input type="radio" id="3" name="monster" value="K">
                               <label for="kraken">3 days</label><br>
@@ -39,7 +48,7 @@ import ImgCarousel from '../components/ImgCarousel.astro'
                     </div>
     
             </section>
-        <section class="">
+        <section class="pl-[64px] py-[64px]">
             <ImgCarousel/>
         </section>
     </div>
@@ -63,8 +72,10 @@ fetch(url)
 function showProduct(garment) {
   console.log(garment);
   document.querySelector(".collection").textContent = garment.collection_name;
+  document.querySelector(".name").textContent =
+    garment.title.rendered;
   document.querySelector(".title").textContent =
-    garment.title;
+    garment.title.rendered;
     document.querySelector(".details").textContent =
     garment.description;
     document.querySelector(".material").textContent =
