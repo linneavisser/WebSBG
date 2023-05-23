@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ShadowH from '../img/collectionpages/Shadow/shadowHero.webp';
+import ShadowH2 from '../img/collectionpages/Shadow/shadowH2.webp';
 import Shadow1 from '../img/collectionpages/Shadow/shadow1.webp';
 import Shadow2 from '../img/collectionpages/Shadow/shadow2.webp'
 import Shadow3 from '../img/collectionpages/Shadow/shadow3.webp';
@@ -17,30 +18,46 @@ import Carousel3 from '../img/collectionpages/Shadow/shadowC3.webp';
         / <a href="/">Shadow Collection</a>
     </div>
     <!-- HERO -->
-    <img src={ShadowH} alt="Detail image of fabric" class="col-start-1 col-span-3 pb-space-32-48">
-<div class="col-span-full flex flex-col gap-space-32-48 row-start-3 pb-space-64-160px">
+    <img src={ShadowH} alt="Detail image of fabric" class="md:hidden col-start-1 md:col-start-4 col-span-3 md:col-span-5 pb-space-32-48 md:rotate-90">
+    <img src={ShadowH2} alt="Detail image of fabric" class="hidden md:block col-start-4 col-span-6 pb-space-32-48 ">
+<div class="col-span-full flex flex-col md:flex-row md:justify-between gap-space-32-48 row-start-3 pb-space-64-160px">
         <h1 class="">Shadow Collection</h1>
         <div class="w-[165px] h-[107px] bg-slate-400 self-end"></div>
 </div>
 
-<img src={Shadow1} alt="Picture of top from Shadow collection" class="col-span-2 pb-8">
-<p class="col-span-full">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan enim eget ligula
+<img src={Shadow1} alt="Picture of top from Shadow collection" class="col-span-2 md:col-span-4 pb-8 md:pb-0 md:row-span-2">
+<p class="col-span-full md:col-span-5 md:col-start-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan enim eget ligula
      interdum posuere vel id nisl. Ut ut magna vel risus blandit tincidunt. In auctor aliquam purus, 
      a tincidunt mi condimentum a.</p>
+     <img src={Shadow2} alt="Three items from Shadow Collection" class="hidden md:block col-start-8 col-span-5 self-end">
     </div>
+
 <img src={Shadow2} alt="Three items from Shadow Collection" class="md:hidden pt-16">
+
 <div class="mobileGrid desktopGrid">
-    <p class="alth1 col-span-full py-space-64-160px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-<div class="flex flex-col gap- col-span-2 gap-space-gutter">
-    <img src={Carousel1} alt="Dress from Shadow Collection">
+
+    <p class="alth1 col-span-full md:col-span-8 py-space-64-160px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+<div class="flex flex-col md:hidden col-span-2 gap-space-gutter">
+    <img src={Carousel3} alt="Dress from Shadow Collection">
     <img src={Carousel2} alt="Top from Shadow Collection">
 </div>
-<img src={Carousel3} alt="Top from Shadow Collection" class="col-span-2 self-end">
+<img src={Carousel1} alt="Top from Shadow Collection" class=" md:hidden col-span-2 self-end">
+
+<!-- desktop -->
+<div class="hidden md:flex gap-space-gutter  col-span-3 col-start-4 row-start-2">
+    <img src={Carousel3} alt="Dress from Shadow Collection">
+    <img src={Carousel2} alt="Top from Shadow Collection">
+    <img src={Carousel1} alt="Top from Shadow Collection">
+</div>
+<p class="col-span-full md:col-start-6 md:col-span-5 md:row-start-4 pt-8 pb-16 md:p-0 md:self-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Nullam accumsan enim eget ligula interdum posuere vel id nisl. Ut ut magna vel risus blandit tincidunt. In auctor aliquam purus, a tincidunt mi condimentum a.</p>
+<img src={Shadow3} alt="Detail image of fabric" class="col-span-full md:col-span-3 md:col-start-1 md:row-start-4 md:pt-16">
+
 </div>
 
 </Layout>
 
 
 <style>
-  
+
 </style>
