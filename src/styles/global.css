@@ -120,7 +120,7 @@
 
       h3{
         font-family: var(--font-family-main);
-        font-size: var(--font-size-h3);
+        font-size: var(--font-size-h4-lg-body);
         font-weight: var(--font-weight-semibold);
         line-height: var(--font-size-h4-lg-body);
       }

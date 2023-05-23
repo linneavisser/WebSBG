@@ -20,6 +20,7 @@ module.exports = {
 				"padding-header-y": "var(--space-24-32px)",
 				"gap-footer":" var(--space-64-80px)",
 				"body-x":"var(--padding-body-x)",
+				"space-gutter": "var(--space-grid-gutter)",
 			},
 
 			gridTemplateColumns: {
