@@ -26,8 +26,9 @@ import Agabgif2 from '../videos-sally/nobg-2.mp4';
  <div class="px-body-x md:grid md:grid-cols-2">
     <h1 class="py-space-32-48">Abject Garment, Absent Body</h1>
       <div class="grid relative justify-items-end">
-          <div class=" md:my-space-32-48  small-img-top w-[165px] h-[107px] md:w-[211px] md:h-[137px]"></div>
-          <div class=" hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px]  bg-slate-400"></div>
+          <div class=" md:my-space-32-48  small-img-top w-[165px] h-[107px] md:w-[211px] md:h-[137px] hover:scale-105 cursor-cell transition duration-700 ease-in-out"></div>
+          <div id="overlay" class="hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px] bg-slate-100 cursor-cell"></div>
+          <div id="secondOverlay" class="modal hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px] cursor-cell"></div>
       </div>  
   </div>
 
@@ -86,15 +87,48 @@ import Agabgif2 from '../videos-sally/nobg-2.mp4';
     background-size: cover;
     background-image: url('../img/collectionpages/agab/process-agab.webp');
 }
+#overlay {
+  background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url('../img/collectionpages/agab/process-hover2.webp');
+
+}
+#secondOverlay {
+  background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-image: url('../img/collectionpages/agab/process-hover-copy.webp');
+
+}
+.small-img-top:hover{
+  border: 1 solid black;
+    
+}
 
 .hide {
   display: none;
 }
 
 
-
-  
-
-
-
 </style>
+
+<script is:inline>
+
+  function displayPopup() {
+   document.getElementById("overlay").classList.remove("hide");
+  }
+  function displaySecondPopup() {
+   document.getElementById("secondOverlay").classList.remove("hide");
+   document.getElementById("overlay").classList.add("hide");
+  }
+
+  function closeSecondPopup() {
+   document.getElementById("secondOverlay").classList.add("hide");
+  }
+
+  document.querySelector(".small-img-top").addEventListener("click", displayPopup);
+  document.querySelector("#overlay").addEventListener("click", displaySecondPopup);
+  document.querySelector("#secondOverlay").addEventListener("click", closeSecondPopup);
+  
+  </script>
