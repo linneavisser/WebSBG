@@ -1,46 +1,101 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Agabvid from '../videos-sally/agab-landing.mp4';
+import Agabimg1 from '../img/collectionpages/agab/agab1.webp';
+import Agabshadow from '../img/collectionpages/agab/test-shadow.webp';
+import Graydress from '../img/collectionpages/agab/gray-dress-extra.webp';
+import Tshirt from '../img/collectionpages/agab/t-shirt-hover2.webp'; 
+import Agabimg2 from '../img/collectionpages/agab/ny-agab.webp';
+import Agabimg3 from '../img/collectionpages/agab/brown-dress.webp';
+import Agabimg4 from '../img/collectionpages/agab/agab-44.webp';
+import Agabimg5 from '../img/collectionpages/agab/agab-55.webp';
+import Agabimg6 from '../img/collectionpages/agab/agab-66.webp';
+import Agabimg7 from '../img/collectionpages/agab/agab-77.webp';
+import Flatdress from '../img/collectionpages/agab/flat-dress.webp';
+import Flatpants from '../img/collectionpages/agab/flat-pants.webp';
+import Agabgif from '../videos-sally/gif-ny.mp4';
+import Agabgif2 from '../videos-sally/nobg-2.mp4';
+
 ---
 <Layout>
-    <div class="overlinep px-body-x py-p-l"> <a class="hover-underline-animation" href="/collections/">Collections</a> / Abject Garment, Absent Body</div>
+    <div class="overlinep px-body-x py-space-32-48"> <a class="hover-underline-breadcrumb" href="/collections/">Collections</a> / Abject Garment, Absent Body</div>
     
-    <video width="100%" autoplay loop>
-        <source src={Agabvid} type="video/mp4">
-    </video>
-    <section class="mobileGrid">
-        <h1 class="col-span-4 py-p-l">Abject Garment, Absent Body</h1>
+      <video autoplay loop>
+      <source src={Agabvid} type="video/mp4">
+  </video>
+
+    
+    <section class="mobileGrid desktopGrid">
+        <h1 class="col-span-4 py-space-32-48 md:col-span-7">Abject Garment, Absent Body</h1>
+        <div class="mobileGrid desktopGrid col-span-full">
+          <div class=" small-img-top col-start-3 my-space-32-48 md:col-start-10 col-span-2 md:col-span-3 w-[165px] md:w-[211px] h-[107px] md:h-[137px] row-start-2"></div>
+          <div class="hide col-start-3 my-space-32-48 md:col-start-10 col-span-2 md:col-span-3 w-[165px] md:w-[211px] h-[107px] md:h-[137px] row-start-2 bg-slate-400"></div>
+        </div>
         
+        <!-- <video class="col-span-2" autoplay loop>
+          <source src={Agabgif2} type="video/mp4">
+        </video> -->
+        <img src={Agabimg1 } alt="Image of model wearing garments from AGAB Project" class="col-span-2 md:col-span-4">
+        <p class=" py-space-32-48 col-span-4 md:col-span-5 md:col-start-6">
+          The collection is built up around the concept of abjection and demonstrates three stages of the the process. From being part of the wearer and their body, to the fulfilled abjection, where the body is absent and wearability can be questioned. The abjection is expressed differently from garment to garment: some styles leave the body, some crumble to distorted pieces and others again show alternative use or resemble a rejected second skin. For all styles the value is considered from both the perspective of a participating wearer and of an observing viewer. Thereby I aim to challenge the idea, that garments only have value, when worn on the body. </p>
+<h2 class="col-span-3 pt-space-32-48 pb-space-24-32">An abject is a rejected object. It is neither subject nor object, but somewhere in between what is "me" and what is "other"
+</h2>
+</section>
+<section class="mobileGrid desktopGrid">
+  
+  <img class=" pb-space-64-80 col-span-2" src={Agabshadow} alt="shadow illustartion">
+        <img class=" pb-space-64-80 col-span-2" src={Graydress} alt="dress from agab collection">
+        <p class="mediumBody col-span-full">The use of shadows for the silhouettes, cuts and lines is flowing through the whole collection, creating coherence between the different looks. The graphic and geometric makes a counterplay against the distorted, unravelled and organic. </p>
+</section>
+
+
+
+<section class="mobileGrid desktopGrid">
+  <img class="py-space-64-80 col-span-full" src={Tshirt} alt="gray tshirt from agab collection">
+  
+    <p class=" pb-space-64-80 alth1 col-span-full">The abjection is happening on different levels: from full looks, garment-level to fiber-level.</p>
+  
+</section>
+
+<section class="mobileGrid desktopGrid">
+  <img class="col-span-2 pb-3" src={Agabimg2} alt="model with garment from agab collection">
+  <img class="col-span-2 pb-3" src={Agabimg3} alt="model with brown dress from agab collection">
+  <img class="col-span-2" src={Agabimg4} alt="closeup on top from agab collection">
+  <img class="col-span-2" src={Agabimg5} alt="behind the scens image from agab collection">
+</section>
+
+<img class="py-space-80-160" src={Agabimg6} alt="model with dress from agab collcetion">
+
+<section class="mobileGrid desktopGrid">
+  <img class="col-span-3" src={Agabimg7} alt="agab collcetion">
+</section>
+
+<section class="mobileGrid desktopGrid">
+  <img class="col-span-full py-space-64-80" src={Flatdress} alt="flat lay dress from agab collection">
+  <img class="col-span-3 col-start-2 " src={Flatpants} alt="flat lay pants from agab collection">
+</section>
+
+
      
      
-     </section>
+    
 
 </Layout>
 
 <style>
-   /* UNDERLINE HOVER EFFECT*/
-    .hover-underline-animation {
-       display: inline-block;
-       position: relative;
-       color: #000000;
-     }
-    
-     .hover-underline-animation:after {
-       content: '';
-       position: absolute;
-       width: 100%;
-       transform: scaleX(0);
-       height: 0.5px;
-       bottom: 0;
-       left: 0;
-       background-color: #000000;
-       transform-origin: bottom right;
-       transition: transform 0.25s ease-out;
-     }
-    
-     .hover-underline-animation:hover:after {
-       transform: scaleX(1);
-       transform-origin: bottom left;}
+  .small-img-top{
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url('../img/collectionpages/agab/process-agab.webp');
+}
+
+.hide {
+  display: none;
+}
+
+
+  
 
 
 
