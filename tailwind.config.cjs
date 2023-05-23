@@ -16,6 +16,7 @@ module.exports = {
         		"space-64-80": "var(--space-64-80px)",
        			"space-80-160": "var(--space-80-160px)",
 				"space-160-200": "var(--space-160-200px)",
+				"space-64-160px": "var(--space-64-160px)",
 				"padding-header-y": "var(--space-24-32px)",
 				"gap-footer":" var(--space-64-80px)",
 				"body-x":"var(--padding-body-x)",

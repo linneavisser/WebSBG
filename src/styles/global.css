@@ -39,8 +39,10 @@
   --space-4xl: clamp(10.00rem, calc(9.12rem + 3.76vw), 12.50rem);
   --space-grid-gutter: clamp(0.75rem, calc(0.49rem + 1.13vw), 1.50rem);
 
+
   /* CUSTOM SPACING PAIRS */
   --space-s-xl: clamp(1.00rem, calc(-0.06rem + 4.51vw), 4.00rem);
+  --space-2xl-5xl: clamp(4.00rem, calc(1.91rem + 10.43vw), 10.00rem);
 
   /* COLORS */
   --color-black: #000000;
@@ -54,6 +56,8 @@
   --space-64-80px: var(--space-2xl);
   --space-80-160px: var(--space-3xl);
   --space-160-200px: var(--space-4xl);
+  --space-64-160px: var(--space-2xl-5xl)
+
 
 
       }
