@@ -39,12 +39,13 @@ import Garment from '../components/GarmentCard.astro'
 
 <script is:inline>
     window.addEventListener("load", Categories);
-const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/"
-function Categories(){
+    const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/"
+    function Categories(){
     getParentCategories();
 }
+
 function getParentCategories(){
- fetch(endpoint + "categories?parents=1,18,19&_fields=name")
+ fetch(endpoint + "categories?parents=1,18,19")
  .then(res => res.json())
  .then(setupCategories);
 //  getTheGarment();
@@ -56,26 +57,35 @@ function getParentCategories(){
 //     .then(setupGarment)
 // }
 
+
 function setupCategories(catArray){
     const template = document.querySelector("#categoryTemplate").content;
-const parentElement = document.querySelector(".filters");
+    const parentElement = document.querySelector(".filters");
     catArray.forEach(cat => {
         const copy = template.cloneNode(true);
         copy.querySelector("h3").textContent=cat.name;
         copy
             .querySelector("a")
-            .setAttribute("href", "/rental/category=" + cat.category);
+            .setAttribute("href", `/rental/?parents=${cat.id}`);
+            // .setAttribute("href", "/rental/category=" + `${cat.id}`);
         parentElement.appendChild(copy);
     })
 }
 
 // function setupGarment(garmentArray){
 //     const template = document.querySelector(".productlistTemplate").content;
-// const parentElement = document.querySelector(".productlist");
-//     catArray.forEach(cat => {
+//     const parentElement = document.querySelector(".productlist");
+//     garmentArray.forEach(garment => {
 //         const copy = template.cloneNode(true);
-//         clone.querySelector
+//         copy.querySelector(".price").textContent = `${garment.price_3days}`;
+//         copy.querySelector(".name").textContent = `${garment.title.rendered}`;
+//         copy
+//         .querySelector("a")
+//         .setAttribute("href", `/productview/?id=${garment.id}`);
+//         copy.querySelector(".mainImage").src = garment.main_image.guid;
 //         parentElement.appendChild(copy);
 //     })
 // }
+
+
 </script>

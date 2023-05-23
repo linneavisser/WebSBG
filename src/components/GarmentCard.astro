@@ -45,8 +45,7 @@ function showProduct(garment){
   copy.querySelector(".name").textContent = `${garment.title.rendered}`;
   copy
       .querySelector("a")
-      .setAttribute("href", `/productview/?id=${garment.id}`);
-  copy.querySelector(".mainImage").src = garment.main_image.guid;
+      .setAttribute("href", `/singlegarment/?id=${garment.id}`);
   copy.querySelector(".mainImage").src = garment.main_image.guid;
 
   const parent = document.querySelector(".garmentlist");
@@ -54,6 +53,7 @@ function showProduct(garment){
 }
 
 
+// NOT IN USE
 
 
 // function init(event) {
