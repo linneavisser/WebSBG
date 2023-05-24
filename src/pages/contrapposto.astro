@@ -1,63 +1,88 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ShadowH from '../img/collectionpages/Shadow/shadowHero.webp';
-import ShadowH2 from '../img/collectionpages/Shadow/shadowH2.webp';
-import Shadow1 from '../img/collectionpages/Shadow/shadow1.webp';
-import Shadow2 from '../img/collectionpages/Shadow/shadow2.webp'
-import Shadow3 from '../img/collectionpages/Shadow/shadow3.webp';
-import Carousel1 from '../img/collectionpages/Shadow/shadowC1.webp';
-import Carousel2 from '../img/collectionpages/Shadow/shadowC2.webp';
-import Carousel3 from '../img/collectionpages/Shadow/shadowC3.webp';
+import HeroVideo from '../img/collectionpages/Contra/HeroVideo.mp4'
+import Contra1 from '../img/collectionpages/Contra/contra1.webp';
+import Contra2 from '../img/collectionpages/Contra/contra2.webp';
+import Contra3 from '../img/collectionpages/Contra/contra3.webp';
+import Contra4 from '../img/collectionpages/Contra/contra4.webp';
+import Contra5 from '../img/collectionpages/Contra/contra5.webp';
+import Video from '../img/collectionpages/Contra/ContraHclip.mp4';
 
 ---
 
 <Layout>
-    <div class="mobileGrid desktopGrid">
-    <div class="breadcrumbs py-space-32-48 overlinep col-span-full">
+    <div class="breadcrumbs py-space-32-48 px-body-x overlinep col-span-full">
         <a class="hover-underline-animation" href="/collections/">Collections</a> 
-        / <a href="/">Shadow Collection</a>
+        / <a href="/">The Contrapposto Concept</a>
     </div>
-    <!-- HERO -->
-    <img src={ShadowH} alt="Detail image of fabric" class="md:hidden col-start-1 md:col-start-4 col-span-3 md:col-span-5 pb-space-32-48 md:rotate-90">
-    <img src={ShadowH2} alt="Detail image of fabric" class="hidden md:block col-start-4 col-span-6 pb-space-32-48 ">
-<div class="col-span-full flex flex-col md:flex-row md:justify-between gap-space-32-48 row-start-3 pb-space-64-160px">
-        <h1 class="">Shadow Collection</h1>
-        <div class="w-[165px] h-[107px] bg-slate-400 self-end"></div>
-</div>
-
-<img src={Shadow1} alt="Picture of top from Shadow collection" class="col-span-2 md:col-span-4 pb-8 md:pb-0 md:row-span-2">
-<p class="col-span-full md:col-span-5 md:col-start-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan enim eget ligula
-     interdum posuere vel id nisl. Ut ut magna vel risus blandit tincidunt. In auctor aliquam purus, 
-     a tincidunt mi condimentum a.</p>
-     <img src={Shadow2} alt="Three items from Shadow Collection" class="hidden md:block col-start-8 col-span-5 self-end">
-    </div>
-
-<img src={Shadow2} alt="Three items from Shadow Collection" class="md:hidden pt-16">
+    <!-- HERO VIDEO -->
+    <video src={HeroVideo} autoplay loop class="m-auto w-[75vw]"></video>
 
 <div class="mobileGrid desktopGrid">
+    <h1 class="col-span-4 md:col-span-7 py-8 md:pt-40">The Contrapposto Concept</h1>
+    <div class="col-start-3 md:col-start-10 md:mt-40 col-span-2 md:col-span-3 w-[165px] md:w-[211px] h-[107px] md:h-[137px] bg-slate-400 mb-16 md:mb-40"></div>
 
-    <p class="alth1 col-span-full md:col-span-8 py-space-64-160px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-<div class="flex flex-col md:hidden col-span-2 gap-space-gutter">
-    <img src={Carousel3} alt="Dress from Shadow Collection">
-    <img src={Carousel2} alt="Top from Shadow Collection">
+<img src={Contra1} alt="Picture of dress from Contrapposto Project" class="col-span-2 md:col-span-4 pb-8 md:pb-0">
+<p class="mediumBody col-span-full md:col-span-6 md:col-start-6 md:self-center">Project focusing on concept- and shape development by combining analog and digital pattern construction with draping. Dogma rules for shaping inspired by the contrapposto posture used in ancient Greek sculpture art.</p>
+
+<!-- <div class="hidden md:flex gap-space-gutter col-start-7 col-span-6">
+    <img src={Contra2} alt="inverted picture of the dress" class="h-auto w-auto max-w-[326px] max-h-[482px]">
+    <img src={Contra3} alt="black and white picture of the dress" class="h-auto w-auto max-w-[326px] max-h-[482px]">
+    </div>     -->
+    <div class="hidden md:flex gap-space-gutter col-start-7 col-span-6">
+        <div class="img1 h-[70vh] w-[50vw]"></div>
+        <div class="img2 h-[70vh] w-[50vw]"></div>
+     </div>
+
+    <div class="hidden md:flex gap-space-gutter col-start-1 col-span-5 pt-10">
+        <img src={Contra5} alt="Picture of coat from collection" class="h-auto w-auto max-w-[326px] max-h-[482px]">
+        <img src={Contra4} alt="Picture of coat and dress peeking through from collection" class="h-auto w-auto max-w-[211px] max-h-[275px] self-end">
+        </div>    
+
 </div>
-<img src={Carousel1} alt="Top from Shadow Collection" class=" md:hidden col-span-2 self-end">
+
+<!-- mobile  -->
+<div class="mobileGrid md:hidden pt-16">
+<div class="flex col-span-full gap-space-gutter pb-space-gutter">
+   <div class="img1 h-[45vh] w-[45vw]"></div>
+   <div class="img2 h-[45vh] w-[45vw]"></div>
+</div>
+<div class="flex col-span-full gap-space-gutter">
+    <div class="img3 h-[45vh] w-[45vw]"></div>
+    <div class="img4 h-[45vh] w-[45vw]"></div>
+ </div>
+
+</div>
 
 <!-- desktop -->
-<div class="hidden md:flex gap-space-gutter  col-span-3 col-start-4 row-start-2">
-    <img src={Carousel3} alt="Dress from Shadow Collection">
-    <img src={Carousel2} alt="Top from Shadow Collection">
-    <img src={Carousel1} alt="Top from Shadow Collection">
-</div>
-<p class="col-span-full md:col-start-6 md:col-span-5 md:row-start-4 pt-8 pb-16 md:p-0 md:self-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Nullam accumsan enim eget ligula interdum posuere vel id nisl. Ut ut magna vel risus blandit tincidunt. In auctor aliquam purus, a tincidunt mi condimentum a.</p>
-<img src={Shadow3} alt="Detail image of fabric" class="col-span-full md:col-span-3 md:col-start-1 md:row-start-4 md:pt-16">
-
-</div>
 
 </Layout>
 
 
 <style>
+.img1{
+    background-image: url('../img/collectionpages/Contra/contra2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.img2{
+    background-image: url('../img/collectionpages/Contra/contra3.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
+.img3{
+    background-image: url('../img/collectionpages/Contra/contra4.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.img4{
+    background-image: url('../img/collectionpages/Contra/contra5.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 </style>
