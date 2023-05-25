@@ -1,0 +1,50 @@
+---
+
+---
+<div id="cookieboks" class="cookiecontainer bottom-0 fixed w-full">
+    <div class="z-200 accentBody">
+       <div class="bg-black text-white flex justify-between px-space-16-24 py-space-16-24 ">
+        <p class="accentBody">This site is using cookies. <a class="underline" href="/privacy/">Learn more</a></p>
+        <div class="flex gap-8">
+            <button id="accepter" class="text-[#F4FF00] cursor-pointer">Accept</button>
+            <button id="afvis" class="text-[#B8B8B8] cursor-pointer">Decline</button>
+        </div>
+           
+   </div>
+
+   <style>
+    .hide{
+        display:none;
+    }
+    .cookiecontainer{
+        z-index: 800 !important;
+    }
+    
+   </style>
+   <script is:inline>
+    //COOKIES
+     const acceptCookie = document.querySelector("#accepter");
+     const denyCookie = document.querySelector("#afvis");
+     const cookieboks = document.querySelector("#cookieboks");
+
+     acceptCookie.addEventListener("click", fjernCookieBoks);
+     denyCookie.addEventListener("click", fjernCookieBoks);
+
+     function fjernCookieBoks(){
+         cookieboks.classList.add("hide");
+         sessionStorage.setItem("fjerncookieboks", true);
+     }
+
+     if(sessionStorage.getItem("fjerncookieboks")){
+         cookieboks.classList.add("hide");
+     };
+
+     //CLOSE THE BOX
+     document.addEventListener("DOMContentLoaded", closeCookiebox)
+     function closeCookiebox(){
+     document.querySelector('#closeit').addEventListener('click', () => {
+         document.querySelector('#cookieboks').classList.add('hidden');
+     
+   })};
+ 
+</script>
