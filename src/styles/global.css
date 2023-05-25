@@ -143,7 +143,10 @@ p {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
 }
-
+.largeBody{
+  font-size: var(--font-size-h4-lg-body);
+  line-height: var(--line-height-h4-lg-body);
+}
 .mediumBody {
   font-size: var(--font-size-m-body);
   line-height: var(--line-height-m-body);
