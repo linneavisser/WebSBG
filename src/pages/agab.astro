@@ -18,59 +18,71 @@ import Agabgif2 from '../videos-sally/nobg-2.mp4';
 
 ---
 <Layout>
-    <div class="overlinep px-body-x py-space-32-48"> <a class="hover-underline-breadcrumb" href="/collections/">Collections</a> / Abject Garment, Absent Body</div>
+  <div class="overlinep px-body-x py-space-32-48"> <a class="hover-underline-breadcrumb" href="/collections/">Collections</a> / Abject Garment, Absent Body</div>
     
-      <video autoplay loop>
-      <source src={Agabvid} type="video/mp4">
-  </video>
+<div>
+        <video class=" md:h-[85vh] md:w-full md:object-cover" autoplay loop>
+        <source src={Agabvid} type="video/mp4">
+    </video>
+</div>
+
  <div class="px-body-x md:grid md:grid-cols-2">
     <h1 class="py-space-32-48">Abject Garment, Absent Body</h1>
       <div class="grid relative justify-items-end">
-          <div class=" md:my-space-32-48  small-img-top w-[165px] h-[107px] md:w-[211px] md:h-[137px] hover:scale-105 cursor-cell transition duration-700 ease-in-out"></div>
+          <div id="clickMe" class=" md:my-space-32-48  small-img-top w-[165px] h-[107px] md:w-[211px] md:h-[137px] hover:scale-95 cursor-cell transition duration-700 ease-in-out"></div>
           <div id="overlay" class="hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px] bg-slate-100 cursor-cell"></div>
-          <div id="secondOverlay" class="modal hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px] cursor-cell"></div>
+          <div id="secondOverlay" class="closeDiv modal hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px] cursor-cell"></div>
       </div>  
   </div>
 
     <section class="mobileGrid desktopGrid">
         <img src={Agabimg1 } alt="Image of model wearing garments from AGAB Project" class="col-span-2 md:col-span-4">
-        <p class=" py-space-32-48 col-span-4 md:col-span-5 md:col-start-6">
+        <p class=" py-space-32-48 col-span-4 md:col-span-6 md:col-start-6 lg:col-span-5">
           The collection is built up around the concept of abjection and demonstrates three stages of the the process. From being part of the wearer and their body, to the fulfilled abjection, where the body is absent and wearability can be questioned. The abjection is expressed differently from garment to garment: some styles leave the body, some crumble to distorted pieces and others again show alternative use or resemble a rejected second skin. For all styles the value is considered from both the perspective of a participating wearer and of an observing viewer. Thereby I aim to challenge the idea, that garments only have value, when worn on the body. </p>
-<h2 class="col-span-3 pt-space-32-48 pb-space-24-32">An abject is a rejected object. It is neither subject nor object, but somewhere in between what is "me" and what is "other"
+<h2 class="col-span-3 pt-space-32-48 pb-space-24-32 md:col-span-8 md:col-start-5 md:pt-0">An abject is a rejected object. It is neither subject nor object, but somewhere in between what is "me" and what is "other"
 </h2>
 </section>
-<section class="mobileGrid desktopGrid">
+<section class="mobileGrid desktopGrid md:pt-space-64-80">
   
-  <img class=" pb-space-64-80 col-span-2" src={Agabshadow} alt="shadow illustartion">
-        <img class=" pb-space-64-80 col-span-2" src={Graydress} alt="dress from agab collection">
-        <p class="mediumBody col-span-full">The use of shadows for the silhouettes, cuts and lines is flowing through the whole collection, creating coherence between the different looks. The graphic and geometric makes a counterplay against the distorted, unravelled and organic. </p>
+  <img class=" pb-space-64-80 col-span-2 md:col-start-7 md:col-span-3" src={Agabshadow} alt="shadow illustartion">
+  <div class=" pb-space-64-80 col-span-2 md:col-span-3">
+    <video autoplay loop>
+    <source src={Agabgif2} type="video/mp4">
+    </video> 
+  </div>
+        <!-- <img class=" pb-space-64-80 col-span-2 md:col-span-3" src={Graydress} alt="dress from agab collection"> -->
+        <p  class="mediumBody col-span-full md:col-span-5">The use of shadows for the silhouettes, cuts and lines is flowing through the whole collection, creating coherence between the different looks. The graphic and geometric makes a counterplay against the distorted, unravelled and organic. </p>
 </section>
 
 
 
 <section class="mobileGrid desktopGrid">
-  <img class="py-space-64-80 col-span-full" src={Tshirt} alt="gray tshirt from agab collection">
+  <img class=" sticky -top-10 -z-10 py-space-64-80 col-span-full md:col-span-6 md:col-start-7" src={Tshirt} alt="gray tshirt from agab collection">
+  
   
     <p class=" pb-space-64-80 alth1 col-span-full">The abjection is happening on different levels: from full looks, garment-level to fiber-level.</p>
   
 </section>
 
-<section class="mobileGrid desktopGrid">
-  <img class="col-span-2 pb-3" src={Agabimg2} alt="model with garment from agab collection">
+<section class="mobileGrid desktopGrid py-space-24-32">
+  <img class="col-span-2 pb-3 md:col-start-5" src={Agabimg2} alt="model with garment from agab collection">
   <img class="col-span-2 pb-3" src={Agabimg3} alt="model with brown dress from agab collection">
   <img class="col-span-2" src={Agabimg4} alt="closeup on top from agab collection">
   <img class="col-span-2" src={Agabimg5} alt="behind the scens image from agab collection">
 </section>
 
-<img class="py-space-80-160" src={Agabimg6} alt="model with dress from agab collcetion">
+<div class="desktopGrid md:py-space-80-160">
+<img class="py-space-80-160 md:py-0 md:col-start-1 md:col-span-4" src={Agabimg6} alt="model with dress from agab collcetion">
 
-<section class="mobileGrid desktopGrid">
+
+<section class="mobileGrid md:col-start-6 md:col-span-3 ">
   <img class="col-span-3" src={Agabimg7} alt="agab collcetion">
 </section>
+</div>
 
 <section class="mobileGrid desktopGrid">
-  <img class="col-span-full py-space-64-80" src={Flatdress} alt="flat lay dress from agab collection">
-  <img class="col-span-3 col-start-2 " src={Flatpants} alt="flat lay pants from agab collection">
+  <img class="col-span-full py-space-64-80 md:col-span-7 md:pb-0" src={Flatdress} alt="flat lay dress from agab collection">
+  <img class="col-span-3 col-start-2 md:col-start-9 md:col-span-4 " src={Flatpants} alt="flat lay pants from agab collection">
 </section>
 
 
@@ -115,20 +127,50 @@ import Agabgif2 from '../videos-sally/nobg-2.mp4';
 
 <script is:inline>
 
-  function displayPopup() {
-   document.getElementById("overlay").classList.remove("hide");
-  }
-  function displaySecondPopup() {
-   document.getElementById("secondOverlay").classList.remove("hide");
-   document.getElementById("overlay").classList.add("hide");
-  }
 
-  function closeSecondPopup() {
-   document.getElementById("secondOverlay").classList.add("hide");
-  }
+function toggleDivOnClickOutside(clickMe, overlay) {
+  const button = document.getElementById(clickMe);
+  const div = document.getElementById(overlay);
 
-  document.querySelector(".small-img-top").addEventListener("click", displayPopup);
-  document.querySelector("#overlay").addEventListener("click", displaySecondPopup);
-  document.querySelector("#secondOverlay").addEventListener("click", closeSecondPopup);
+  // Add click event listener to the button
+  button.addEventListener('click', function() {
+    // Toggle the display of the div
+    div.style.display = (div.style.display === 'block') ? 'none' : 'block';
+  });
+
+  // Add click event listener to the document
+  document.addEventListener('click', function(event) {
+    const targetElement = event.target;
+
+    // Check if the clicked element is outside the specified div and button
+    if (!div.contains(targetElement) && targetElement !== button) {
+      // Close the div
+      div.style.display = 'none';
+    }
+  });
+}
+
+toggleDivOnClickOutside('clickMe', 'overlay');
+
+/////////
+
+
+
+
+// function displayPopup() {
+// document.getElementById("overlay").classList.remove("hide");
+//  } 
+//   function displaySecondPopup() {
+//    document.getElementById("secondOverlay").classList.remove("hide");
+//    document.getElementById("overlay").classList.add("hide");
+//   }
+
+//   function closeSecondPopup() {
+//    document.getElementById("secondOverlay").classList.add("hide");
+//   } 
+
+//   document.querySelector(".small-img-top").addEventListener("click", displayPopup);
+//   document.querySelector("#overlay").addEventListener("click", displaySecondPopup);
+//   document.querySelector("#secondOverlay").addEventListener("click", closeSecondPopup);
   
   </script>
