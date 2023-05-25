@@ -1,0 +1,12 @@
+---
+const { text, link} = Astro.props
+---
+
+<a href={link} class="btn text-white accentSmallBody py-space-16-24 px-space-24-32 bg-black">{text}</a>
+
+<style>
+    a:hover{
+        background-color: #242424;
+        transition: 0.3s ease-in-out;
+    }
+</style>

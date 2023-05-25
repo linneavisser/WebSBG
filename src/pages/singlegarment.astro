@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import ImgCarousel from '../components/ImgCarousel.astro'
+import PrimaryButton from '../components/PrimaryButton.astro'
 ---
 <Layout>
     <div class="breadcrumbs flex items-center mobileGrid desktopGrid overlinep">
@@ -10,50 +11,148 @@ import ImgCarousel from '../components/ImgCarousel.astro'
     </div>
 
         <div class="flex flex-col-reverse md:grid md:grid-cols-product">
-                <section class="flex flex-col pl-body-x md:pr-[10rem] pt-space-64-80">
-                    <div class="pt-space-24-32">
+                <section class="flex flex-col px-body-x md:pl-body-x md:pr-[10rem] pt-space-32-48 gap-space-32-48">
+
+                    <div class="pt-space-24-32 flex flex-col gap-space-16-24">
                         <p class="collection">Collection Name</p>
                         <h1 class="title">Name Of Product</h1>
                     </div>
-                    <div class="pt-space-24-32 flex flex-col gap-8">
+
+
                         <div>
-                            <p class="mediumBody">Product details</p>
-                            <p class="details">1</p>
+                            <p class="mediumBody">Rental Period</p>
+                              <div class="flex gap-4 pt-2">
+                                  <button class="days accentSmallBody button3">3 days</button>
+                                  <button class="days accentSmallBody button5">5 days</button>
+                                  <button class="days accentSmallBody button1">1 week</button>
+                              </div>
                         </div>
+
                         <div>
-                            <p class="mediumBody">Material</p>
-                            <p class="material">2</p>
+                            <label class="mediumBody" for="start">Start date:</label>
+                                <div>
+                                    <input class="accentBody w-[9rem] border-black border-[1px] p-[0.5rem]" type="date" id="start" name="trip-start" value="2023-06-02" min="2023-06-01" max="2025-12-31">
+                                </div>
                         </div>
-                        <div>
-                            <p class="mediumBody">Size</p> 
-                            <p class="size">3</p>
+
+                            <div>
+                                <div class="flex gap-8">
+                                    <p class="mediumBody">Price</p>
+                                    <p id="placeholder" class="text-red-600 mediumBody">Choose rental period</p>
+                                    <p id="3days" class="hide mediumBody"> <span class="price3">1</span> dkk</p>
+                                    <p id="5days" class="hide mediumBody"> <span class="price5">1</span> dkk</p>
+                                    <p id="1week" class="hide mediumBody"> <span class="price1">1</span> dkk</p>
+                                </div>
+    
+                            <div class="flex gap-8">
+                                <p class="accentSmallBody">Value Price</p> 
+                                <p class="accentSmallBody"><span class="value">1</span> dkk</p>
+                            </div>
+                            </div>
+
+                        <div class="pt-space-24-32">
+                            <PrimaryButton link="/cart/" text="Add to cart" />
                         </div>
-                    </div>
-                    <div class="pt-space-24-32">
-                        <form>
-                            <fieldset>
-                              <legend class="mediumBody">How long</legend>
-                          
-                              <input type="radio" id="3" name="monster" value="K">
-                              <label for="kraken">3 days</label><br>
-                          
-                              <input type="radio" id="5" name="monster" value="S">
-                              <label for="sasquatch">5 days</label><br>
-                          
-                              <input type="radio" id="week" name="monster" value="M">
-                              <label for="mothman">1 week</label>
-                            </fieldset>
-                          </form>
-        
+
+
+
+                          <div class="flex flex-col pt-space-24-32">
+                                <div>
+                                    <details>
+                                        <summary class="mediumBody flex flex-row-reverse justify-between">Product Description</summary>
+                                        <p class="details">x</p>
+                                      </details>
+                                </div>
+                                <div>
+                                    <details>
+                                        <summary class="mediumBody flex flex-row-reverse justify-between">Size & Fit</summary>
+                                        <p class="size">x</p>
+                                      </details>
+                                </div>
+                                <div>
+                                    <details>
+                                        <summary class="mediumBody flex flex-row-reverse justify-between">Material</summary>
+                                        <p class="material">x</p>
+                                      </details>
+                                </div>
+                                <div>
+                                    <details>
+                                        <summary class="mediumBody flex flex-row-reverse justify-between">Washing Instructions</summary>
+                                        <p class="washing">x</p>
+                                      </details>
+                                </div>
                     </div>
     
             </section>
-        <section class="pl-[64px] py-[64px]">
+        <section class="md:pl-[64px] md:pr-body-x md:py-[64px] md:h-[100vh] md:top-0 sticky">
             <ImgCarousel/>
         </section>
     </div>
 
 </Layout>
+
+<style>
+
+input:focus {
+        outline:none !important;
+    }
+details > summary {
+    list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+details > summary::before {
+    content: '+';
+    font-weight: var(--font-weight-light);
+}
+
+details[open] > summary::before {
+    content: '-';
+    font-weight: var(--font-weight-light);
+}
+
+details {
+    border-bottom: 1px solid black;
+    padding: 1rem 0;
+}
+
+details[open] > summary {
+    margin-bottom: 0.5rem;
+}
+
+    input[type="date"]{
+
+    }
+    .days{
+        padding: 1rem 1rem;
+        border: 1px solid black;
+    }
+    .days:hover{
+        background-color: black;
+        color: white;
+    }
+
+    .days:focus{
+        background-color: black;
+        color: white;
+    }
+
+    .title{
+        font-family: var(--font-family-main);
+        font-size: var(--font-size-h2) !important;
+        font-weight: var(--font-weight-semibold);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        line-height: var(--line-height-h2);
+    }
+
+    .hide{
+        display: none;
+    }
+</style>
 
 <script is:inline>
 
@@ -82,9 +181,41 @@ function showProduct(garment) {
     garment.materials;
     document.querySelector(".size").textContent =
     garment.measurements;
+    document.querySelector(".washing").textContent =
+    garment.wash_instructions;
+    document.querySelector(".value").textContent =
+    garment.value_price;
+    document.querySelector(".price3").textContent =
+    garment.price_3days;
+    document.querySelector(".price5").textContent =
+    garment.price_5days;
+    document.querySelector(".price1").textContent =
+    garment.price_1week;
     document.querySelector(".img1").src = garment.main_image.guid;
     document.querySelector(".img2").src = garment.main_image_hover.guid;
     document.querySelector(".img3").src = garment.additional_image.guid;
 }
 
+document.querySelector(".button3").addEventListener("click", displayPrice3);
+document.querySelector(".button5").addEventListener("click", displayPrice5);
+document.querySelector(".button1").addEventListener("click", displayPrice1);
+
+function displayPrice3(){
+    document.getElementById("3days").classList.remove("hide");
+    document.getElementById("placeholder").classList.add("hide");
+    document.getElementById("1week").classList.add("hide");
+    document.getElementById("5days").classList.add("hide");
+}
+function displayPrice5(){
+    document.getElementById("5days").classList.remove("hide");
+    document.getElementById("3days").classList.add("hide");
+    document.getElementById("1week").classList.add("hide");
+    document.getElementById("placeholder").classList.add("hide");
+}
+function displayPrice1(){
+    document.getElementById("1week").classList.remove("hide");
+    document.getElementById("3days").classList.add("hide");
+    document.getElementById("5days").classList.add("hide");
+    document.getElementById("placeholder").classList.add("hide");
+}
 </script>
