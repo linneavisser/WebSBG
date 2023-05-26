@@ -90,15 +90,15 @@ import CartOverlay from '../components/CartOverlay.astro'
         </section>
     </div>
 
-    <section id="cartOverlay" class="cartOverlay grid w-[100vw] md:w-[26vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
+    <!-- <section id="cartOverlay" class="cartOverlay grid w-[100vw] md:w-[26vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
         <CartOverlay/>
-    </section>
+    </section> -->
 
 </Layout>
 
 <style>
 
-.cartOverlay{
+/* .cartOverlay{
     right: -50%;
     transition: right 1s ease-in-out;
 }
@@ -108,7 +108,7 @@ import CartOverlay from '../components/CartOverlay.astro'
 }
 .cartContainer{
     z-index: 800 !important;
-}
+} */
 input:focus {
         outline:none !important;
     }
@@ -169,7 +169,7 @@ details[open] > summary {
         display: none;
     }
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
   .cartOverlay{
     right: auto;
     transition: top 1s ease-in-out;
@@ -179,7 +179,7 @@ details[open] > summary {
     .cartOverlay.open {
     top: 0;
 }
-}
+} */
 </style>
 
 <script is:inline>
@@ -248,18 +248,28 @@ function displayPrice1(){
     document.getElementById("placeholder").classList.add("hide");
 }
 
-//CART OVERLAY FUNCTION
-document.addEventListener('DOMContentLoaded', function() {
-  var openBtn = document.getElementById('add');
-  var overlay = document.getElementById('cartOverlay');
-  var closeBtn = document.getElementById('close');
+// //CART OVERLAY FUNCTION
+// document.addEventListener('DOMContentLoaded', function() {
+//   var openBtn = document.getElementById('add');
+//   var cartBtn1 = document.getElementById('cartMobile');
+//   var cartBtn2 = document.getElementById('cartDesktop');
+//   var overlay = document.getElementById('cartOverlay');
+//   var closeBtn = document.getElementById('close');
 
-  openBtn.addEventListener('click', function() {
-    overlay.classList.add('open');
-  });
+//   openBtn.addEventListener('click', function() {
+//     overlay.classList.add('open');
+//   });
 
-  closeBtn.addEventListener('click', function() {
-    overlay.classList.remove('open');
-  });
-});
+//   cartBtn1.addEventListener('click', function() {
+//     overlay.classList.add('open');
+//   });
+
+//   cartBtn2.addEventListener('click', function() {
+//     overlay.classList.add('open');
+//   });
+
+//   closeBtn.addEventListener('click', function() {
+//     overlay.classList.remove('open');
+//   });
+// });
 </script>
