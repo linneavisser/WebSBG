@@ -29,28 +29,41 @@ import Garment from '../components/GarmentCard.astro'
             <p class="accentBody pb-2">Filters</p>
         </div>
        
-            <div class="grid grid-cols-2 filters gap-5 md:pt-6">
-                <div class="collFilter">
-                    <template id="collCategoryTemplate">
-                        <div class="flex flex.col">
-                            <a href="productlist.html?categories">
-                                <p class="accentBody hover-underline-breadcrumb"></p>
-                            </a>
-                        </div>
-                    </template>
-                </div>
-                <div class="typeFilter">
-                    <template id="categoryTemplate">
-                        <div class="flex flex.col">
-                            <a href="productlist.html?categories">
-                                <p class="accentBody hover-underline-breadcrumb"></p>
-                            </a>
-                        </div>
-                    </template>
-                </div>
-                
+           
+           <div class="flex flex-col gap-5  md:pt-6">
+            <div class="parentFilters flex md:gap-48 col-span-full">
+                <template id="parentCategoryTemplate">
+                    <div class="">
+                        <a href="productlist.html?categories">
+                            <p class="accentBody hover-underline-breadcrumb"></p>
+                        </a>
+                    </div>
+                </template>
             </div>
-
+             <div class="flex md:gap-20">
+                        <div class="collFilter flex flex-col md:gap-5 md:pl-3">
+                            <template id="collCategoryTemplate">
+                                <div class="">
+                                    <a href="productlist.html?categories">
+                                        <p class="accentBody hover-underline-breadcrumb"></p>
+                                    </a>
+                                </div>
+                            </template>
+                        </div>
+        
+        
+                        <div class="typeFilter flex flex-col md:gap-5">
+                            <template id="categoryTemplate">
+                                <div class="">
+                                    <a href="productlist.html?categories">
+                                        <p class="accentBody hover-underline-breadcrumb"></p>
+                                    </a>
+                                </div>
+                            </template>
+                        </div>
+                        
+             </div>
+           </div>
             <div>
                 <img src={Tshirt} alt="tshirt">
             </div>
@@ -78,11 +91,12 @@ window.addEventListener("load", Categories);
     function Categories(){
     getCollCategories();
     getParentCategories();
+    getItemCategories();
 }
 function getParentCategories(){
  fetch(endpoint + "categories?parent=1")
  .then(res => res.json())
- .then(setupCategories);
+ .then(setupParentCategories);
 //  getTheGarment();
 }
 
@@ -93,6 +107,13 @@ function getCollCategories(){
 //  getTheGarment();
 }
 
+function getItemCategories(){
+ fetch(endpoint + "categories?parent=18")
+ .then(res => res.json())
+ .then(setupItemCategories);
+//  getTheGarment();
+}
+
 // function  getTheGarment(){
 //     fetch("https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment")
 //     .then(res => res.json())
@@ -100,9 +121,9 @@ function getCollCategories(){
 // }
 
 
-function setupCategories(catArray){
-    const template = document.querySelector("#categoryTemplate").content;
-    const parentElement = document.querySelector(".filters");
+function setupParentCategories(catArray){
+    const template = document.querySelector("#parentCategoryTemplate").content;
+    const parentElement = document.querySelector(".parentFilters");
     catArray.forEach(cat => {
         const copy = template.cloneNode(true);
         copy.querySelector("p").textContent=cat.name;
@@ -114,9 +135,24 @@ function setupCategories(catArray){
     })
 }
 
+
 function setupCategories(catArray){
     const template = document.querySelector("#collCategoryTemplate").content;
-    const parentElement = document.querySelector(".filters");
+    const parentElement = document.querySelector(".collFilter");
+    catArray.forEach(cat => {
+        const copy = template.cloneNode(true);
+        copy.querySelector("p").textContent=cat.name;
+        copy
+            .querySelector("a")
+            .setAttribute("href", `/rental/?parents=${cat.id}`);
+            // .setAttribute("href", "/rental/category=" + `${cat.id}`);
+        parentElement.appendChild(copy);
+    })
+}
+
+function setupItemCategories(catArray){
+    const template = document.querySelector("#categoryTemplate").content;
+    const parentElement = document.querySelector(".typeFilter");
     catArray.forEach(cat => {
         const copy = template.cloneNode(true);
         copy.querySelector("p").textContent=cat.name;
