@@ -28,7 +28,13 @@ module.exports = {
         mobile: "repeat(4, 1fr)",
         desktop: "repeat(12, 1fr)",
         product: "7fr 5fr",
+        overlay: "9fr 3fr",
       },
+
+      colors:{
+        lightgrey: "#F5F5F5",
+        mediumgrey: "#B3B3B3"
+      }
     },
   },
   plugins: [],

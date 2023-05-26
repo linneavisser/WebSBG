@@ -1,0 +1,46 @@
+---
+import Close from '../svg/icons/close.svg'
+import Placeholder from '../img/landing/dress-brown.webp'
+import PrimaryButton from '../components/PrimaryButton.astro'
+---
+
+
+    <div class="cartContainer p-space-24-32 bg-lightgrey md:col-start-2 col-start-1 col-span-full w-full border-l-[1px] border-mediumgrey">
+        <div class="flex justify-between flex-col h-full">
+
+            <div>
+                <div class="flex justify-end">
+                    <img src={Close} alt="close">
+                </div>
+                <h3>Your Cart</h3>
+    
+                <div class="grid grid-cols-2 border-b-[1px] border-mediumgrey pb-space-16-24">
+                    <div class="imgcontainer ">
+                        <img src={Placeholder} alt="dress">
+                    </div>
+                    <div class="info flex flex-col justify-between">
+                        <div>
+                            <p class="accentSmallBody title">Abjection T-shirt</p>
+                            <p class="accentSmallBody"><span class="price">800</span>dkk</p>
+                        </div>
+                        <button class="underline accentSmallBody">
+                            Remove item
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <div class="flex justify-between">
+                    <p>Subtotal</p>
+                    <p><span class="price">800</span>dkk</p>
+                </div> 
+                <div><PrimaryButton/></div>
+            </div>
+            
+        </div>
+    </div>
+
+
+<style>
+</style>
