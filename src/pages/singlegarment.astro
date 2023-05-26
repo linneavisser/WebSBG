@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import ImgCarousel from '../components/ImgCarousel.astro'
 import PrimaryButton from '../components/PrimaryButton.astro'
+import CartOverlay from '../components/CartOverlay.astro'
 ---
 <Layout>
     <div class="breadcrumbs flex items-center mobileGrid desktopGrid overlinep">
@@ -84,10 +85,14 @@ import PrimaryButton from '../components/PrimaryButton.astro'
                     </div>
     
             </section>
-        <section class="md:pl-[64px] md:pr-body-x md:py-[64px] md:h-[100vh] md:top-0 sticky">
+        <section class="md:pl-[64px] md:pr-body-x md:py-[64px] h-[80vh] md:h-[100vh] md:top-0 sticky">
             <ImgCarousel/>
         </section>
     </div>
+
+    <section class="cartOverlay grid md:grid-cols-overlay md:gap[20px] mobileGrid h-[100vh]">
+        <CartOverlay/>
+    </section>
 
 </Layout>
 
