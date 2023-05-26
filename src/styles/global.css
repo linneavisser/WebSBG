@@ -60,6 +60,9 @@
   --space-s-xl: clamp(1rem, calc(-0.06rem + 4.51vw), 4rem);
   --space-2xl-5xl: clamp(4rem, calc(1.91rem + 10.43vw), 10rem);
   --space-2xs-s: clamp(0.5rem, calc(0.36rem + 0.71vw), 1rem);
+  /*BUTTON SPACING PAIR*/
+  --space-s-s: clamp(1rem, calc(0.91rem + 0.38vw), 1.25rem);
+  --space-xl-3xl: clamp(3rem, calc(1.77rem + 5.26vw), 6.5rem);
 
   /* COLORS */
   --color-black: #000000;
@@ -75,6 +78,8 @@
   --space-80-160px: var(--space-3xl);
   --space-160-200px: var(--space-4xl);
   --space-64-160px: var(--space-2xl-5xl);
+  --padding-button-y: var(--space-s-s);
+  --padding-button-x: var(--space-xl-3xl);
 }
 
 * {
@@ -144,7 +149,7 @@ p {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
 }
-.largeBody{
+.largeBody {
   font-size: var(--font-size-h4-lg-body);
   line-height: var(--line-height-h4-lg-body);
 }

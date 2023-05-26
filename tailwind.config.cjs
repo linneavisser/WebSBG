@@ -22,6 +22,8 @@ module.exports = {
         "gap-footer": " var(--space-64-80px)",
         "body-x": "var(--padding-body-x)",
         "space-gutter": "var(--space-grid-gutter)",
+        "padding-button-x": "var( --padding-button-x)",
+        "padding-button-y": "var( --padding-button-y)",
       },
 
       gridTemplateColumns: {
