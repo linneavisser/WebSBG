@@ -5,37 +5,40 @@ import PrimaryButton from '../components/PrimaryButton.astro'
 ---
 
 
-    <div class="cartContainer p-space-24-32 bg-lightgrey md:col-start-2 col-start-1 col-span-full w-full border-l-[1px] border-mediumgrey">
+    <div class="cartContainer p-space-24-32 bg-lightgrey md:col-start-2 col-start-1 col-span-full w-full md:border-l-[1px] md:border-mediumgrey">
         <div class="flex justify-between flex-col h-full">
 
             <div>
-                <div class="flex justify-end">
+                <div class="flex justify-end pb-space-8-16">
                     <img src={Close} alt="close">
                 </div>
-                <h3>Your Cart</h3>
+                <h3 class="pb-space-32-48">Your Cart</h3>
     
-                <div class="grid grid-cols-2 border-b-[1px] border-mediumgrey pb-space-16-24">
-                    <div class="imgcontainer ">
+                <div class="grid grid-cols-cart border-b-[1px] border-mediumgrey pb-space-16-24">
+                    <div class="imgcontainer md:px-space-8-16 px-space-32-48">
                         <img src={Placeholder} alt="dress">
                     </div>
                     <div class="info flex flex-col justify-between">
                         <div>
-                            <p class="accentSmallBody title">Abjection T-shirt</p>
-                            <p class="accentSmallBody"><span class="price">800</span>dkk</p>
+                            <p class="accentBody title">Abjection T-shirt</p>
+                            <p class="accentSmallBody"><span class="price">800</span> DKK</p>
                         </div>
-                        <button class="underline accentSmallBody">
+                        <div>
+                            <p class="dates overlinep ">21/7 - 24/7 (3 Days)</p>
+                        </div>
+                        <button class="underline accentSmallBody flex justify-end">
                             Remove item
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="">
+            <div class="pt-space-16-24 border-t-[1px] border-mediumgrey flex flex-col justify-between gap-space-32-48">
                 <div class="flex justify-between">
                     <p>Subtotal</p>
                     <p><span class="price">800</span>dkk</p>
                 </div> 
-                <div><PrimaryButton/></div>
+                <div class="flex justify-center"><PrimaryButton text="Checkout"/></div>
             </div>
             
         </div>
