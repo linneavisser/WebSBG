@@ -4,11 +4,12 @@ const { text, link} = Astro.props
 
 
 
-<button class="text-white accentSmallBody py-padding-button-y px-padding-button-x bg-black">{text}</button>
+<button class="text-white accentSmallBody py-padding-button-y px-padding-button-x bg-black cursor-pointer">{text}</button>
 
 <style>
     button:hover{
         background-color: var(--color-hover);
         transition: 0.3s ease-in-out;
     }
+
 </style>

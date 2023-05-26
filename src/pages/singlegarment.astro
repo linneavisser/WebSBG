@@ -11,7 +11,7 @@ import CartOverlay from '../components/CartOverlay.astro'
         <a class="name" href="#">Product Name</a>
     </div>
 
-        <div class="flex flex-col-reverse md:grid md:grid-cols-product">
+        <div class="flex flex-col-reverse md:grid md:grid-cols-product relative">
                 <section class="flex flex-col px-body-x md:pl-body-x md:pr-[10rem] pt-space-32-48 gap-space-32-48">
 
                     <div class="pt-space-24-32 flex flex-col gap-space-16-24">
@@ -51,7 +51,7 @@ import CartOverlay from '../components/CartOverlay.astro'
                             </div>
                             </div>
 
-                        <div class="pt-space-24-32">
+                        <div id="add" class="pt-space-24-32">
                             <PrimaryButton link="/cart/" text="Add to cart" />
                         </div>
 
@@ -90,7 +90,7 @@ import CartOverlay from '../components/CartOverlay.astro'
         </section>
     </div>
 
-    <section class="cartOverlay grid md:grid-cols-overlay md:gap[20px] mobileGrid h-[100vh]">
+    <section id="cartOverlay" class="cartOverlay grid w-[100vw] md:w-[26vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
         <CartOverlay/>
     </section>
 
@@ -98,6 +98,17 @@ import CartOverlay from '../components/CartOverlay.astro'
 
 <style>
 
+.cartOverlay{
+    right: -50%;
+    transition: right 1s ease-in-out;
+}
+
+.cartOverlay.open {
+  right: 0;
+}
+.cartContainer{
+    z-index: 800 !important;
+}
 input:focus {
         outline:none !important;
     }
@@ -157,6 +168,18 @@ details[open] > summary {
     .hide{
         display: none;
     }
+
+    @media screen and (max-width: 768px) {
+  .cartOverlay{
+    right: auto;
+    transition: top 1s ease-in-out;
+    top: -100%;
+}
+
+    .cartOverlay.open {
+    top: 0;
+}
+}
 </style>
 
 <script is:inline>
@@ -224,4 +247,19 @@ function displayPrice1(){
     document.getElementById("5days").classList.add("hide");
     document.getElementById("placeholder").classList.add("hide");
 }
+
+//CART OVERLAY FUNCTION
+document.addEventListener('DOMContentLoaded', function() {
+  var openBtn = document.getElementById('add');
+  var overlay = document.getElementById('cartOverlay');
+  var closeBtn = document.getElementById('close');
+
+  openBtn.addEventListener('click', function() {
+    overlay.classList.add('open');
+  });
+
+  closeBtn.addEventListener('click', function() {
+    overlay.classList.remove('open');
+  });
+});
 </script>

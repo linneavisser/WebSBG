@@ -5,12 +5,13 @@ import PrimaryButton from '../components/PrimaryButton.astro'
 ---
 
 
-    <div class="cartContainer p-space-24-32 bg-lightgrey md:col-start-2 col-start-1 col-span-full w-full md:border-l-[1px] md:border-mediumgrey">
+    <div id="cartContainer" class=" p-space-24-32 bg-lightgrey md:col-start-2 col-start-1 col-span-full w-full 
+    border-b-[1px] border-mediumgrey md:border-l-[1px] md:border-mediumgrey">
         <div class="flex justify-between flex-col h-full">
 
             <div>
-                <div class="flex justify-end pb-space-8-16">
-                    <img src={Close} alt="close">
+                <div class="flex justify-end pb-space-8-16 ">
+                    <img class="cursor-pointer" id="close" src={Close} alt="close">
                 </div>
                 <h3 class="pb-space-32-48">Your Cart</h3>
     
@@ -26,7 +27,7 @@ import PrimaryButton from '../components/PrimaryButton.astro'
                         <div>
                             <p class="dates overlinep ">21/7 - 24/7 (3 Days)</p>
                         </div>
-                        <button class="underline accentSmallBody flex justify-end">
+                        <button class="remove underline accentSmallBody flex justify-end">
                             Remove item
                         </button>
                     </div>
