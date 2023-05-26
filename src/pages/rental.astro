@@ -4,17 +4,17 @@ import Tshirt from '../img/landing/t-shirt-hover2.webp'
 import Garment from '../components/GarmentCard.astro'
 ---
 <Layout>
-<div class="grid grid-cols-2 px-body-x">
-    <section class="sticky top-space-80-160 h-[70vh]">
+<div class="mobileGrid desktopGrid">
+    <!-- <section class="col-span-5 sticky top-space-80-160 h-[70vh]">
         <div class="border-b-[1px] border-black">
-            <h2>Filters</h2>
+            <p class="accentBody pb-2">Filters</p>
         </div>
        
-            <div class="grid filters">
+            <div class="grid filters gap-5 md:pt-6">
                 <template id="categoryTemplate">
                     <div class="flex flex.col">
                         <a href="productlist.html?categories">
-                            <h3></h3>
+                            <p class="accentBody hover-underline-breadcrumb"></p>
                         </a>
                     </div>
                 </template>
@@ -23,29 +23,71 @@ import Garment from '../components/GarmentCard.astro'
             <div>
                 <img src={Tshirt} alt="tshirt">
             </div>
+    </section> -->
+    <section class="col-span-5 sticky top-space-80-160 h-[70vh]">
+        <div class="border-b-[1px] border-black">
+            <p class="accentBody pb-2">Filters</p>
+        </div>
+       
+            <div class="grid grid-cols-2 filters gap-5 md:pt-6">
+                <div class="collFilter">
+                    <template id="collCategoryTemplate">
+                        <div class="flex flex.col">
+                            <a href="productlist.html?categories">
+                                <p class="accentBody hover-underline-breadcrumb"></p>
+                            </a>
+                        </div>
+                    </template>
+                </div>
+                <div class="typeFilter">
+                    <template id="categoryTemplate">
+                        <div class="flex flex.col">
+                            <a href="productlist.html?categories">
+                                <p class="accentBody hover-underline-breadcrumb"></p>
+                            </a>
+                        </div>
+                    </template>
+                </div>
+                
+            </div>
+
+            <div>
+                <img src={Tshirt} alt="tshirt">
+            </div>
     </section>
 
-    <section class="grid grid-cols-2 garmentlist">
+    <section class="col-start-7 col-span-6 grid grid-cols-2 md:gap-6 garmentlist">
         <Garment/>
     </section>
 </div>
 </Layout>
 
 <style>
-    
 
     
 </style>
 
 <script is:inline>
-    window.addEventListener("load", Categories);
+//     window.addEventListener("load", Categories);
+//     const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/"
+//     function Categories(){
+//     getParentCategories();
+// }
+window.addEventListener("load", Categories);
     const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/"
     function Categories(){
+    getCollCategories();
     getParentCategories();
 }
-
 function getParentCategories(){
- fetch(endpoint + "categories?parents=1,18,19")
+ fetch(endpoint + "categories?parent=1")
+ .then(res => res.json())
+ .then(setupCategories);
+//  getTheGarment();
+}
+
+function getCollCategories(){
+ fetch(endpoint + "categories?parent=19")
  .then(res => res.json())
  .then(setupCategories);
 //  getTheGarment();
@@ -63,7 +105,21 @@ function setupCategories(catArray){
     const parentElement = document.querySelector(".filters");
     catArray.forEach(cat => {
         const copy = template.cloneNode(true);
-        copy.querySelector("h3").textContent=cat.name;
+        copy.querySelector("p").textContent=cat.name;
+        copy
+            .querySelector("a")
+            .setAttribute("href", `/rental/?parent=${cat.id}`);
+            // .setAttribute("href", "/rental/category=" + `${cat.id}`);
+        parentElement.appendChild(copy);
+    })
+}
+
+function setupCategories(catArray){
+    const template = document.querySelector("#collCategoryTemplate").content;
+    const parentElement = document.querySelector(".filters");
+    catArray.forEach(cat => {
+        const copy = template.cloneNode(true);
+        copy.querySelector("p").textContent=cat.name;
         copy
             .querySelector("a")
             .setAttribute("href", `/rental/?parents=${cat.id}`);
