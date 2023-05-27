@@ -24,9 +24,47 @@ import Garment from '../components/GarmentCard.astro'
                 <img src={Tshirt} alt="tshirt">
             </div>
     </section> -->
-    <section class="col-span-5 sticky top-space-80-160 h-[70vh]">
-        <div class="border-b-[1px] border-black">
+    <section class="md:col-span-5 col-span-4 sticky md:top-space-80-160 top-0 md:h-[70vh] bg-white">
+
+    <p class="accentBody pb-2 border-b-[1px] border-black">Filters</p>
+    <div class="flex flex-col gap-1 pt-2  md:pt-4">
+        <div class="parentFilters flex col-span-full justify-between md:pb-3">
+            <template id="parentCategoryTemplate">
+                <div class="">
+                    <a href="productlist.html?categories">
+                        <p class="accentBody hover-underline-breadcrumb"></p>
+                    </a>
+                </div>
+            </template>
+        </div>
+         <div class="flex justify-between pb-2">
+                    <div class="collFilter flex flex-col md:gap-3 gap-1">
+                        <template id="collCategoryTemplate">
+                            <div class="">
+                                <a href="productlist.html?categories">
+                                    <p class=" accentSmallBody hover-underline-breadcrumb"></p>
+                                </a>
+                            </div>
+                        </template>
+                    </div>
+    
+    
+                    <div class="typeFilter flex flex-col md:gap-3 pr-12 md:pr-16 gap-1">
+                        <template id="categoryTemplate">
+                            <div class="">
+                                <a href="productlist.html?categories">
+                                    <p class="accentSmallBody hover-underline-breadcrumb"></p>
+                                </a>
+                            </div>
+                        </template>
+                    </div>
+                    
+         </div>
+       </div>
+
+        <!-- <div class="border-b-[1px] border-black">
             <p class="accentBody pb-2">Filters</p>
+            
         </div>
        
            
@@ -63,13 +101,14 @@ import Garment from '../components/GarmentCard.astro'
                         </div>
                         
              </div>
-           </div>
+           </div> -->
+
             <div>
-                <img src={Tshirt} alt="tshirt">
+                <img class="hidden md:flex" src={Tshirt} alt="tshirt">
             </div>
     </section>
 
-    <section class="col-start-7 col-span-6 grid grid-cols-2 md:gap-6 garmentlist">
+    <section class="md:col-start-7 md:col-span-6 grid grid-cols-2 md:gap-6 garmentlist col-span-4 ">
         <Garment/>
     </section>
 </div>
@@ -177,6 +216,60 @@ function setupItemCategories(catArray){
 //         parentElement.appendChild(copy);
 //     })
 // }
+
+//FETCHING ALL GARMENTS /
+// window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("DOMContentLoaded", init);
+
+function init(event) {
+
+const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
+
+fetch(url)
+.then(function(res){
+  return res.json();
+})
+.then(function(data){
+  handleProductList(data);
+});
+
+function handleProductList(data){
+  console.log(data)
+  data.forEach(showProduct);
+}
+}
+
+function showProduct(garment){
+  console.log(garment);
+  const template = document.querySelector(".productlistTemplate").content;
+  const copy = template.cloneNode(true);
+
+  const imageContainer = copy.querySelector("#imageContainer");
+  const mainImage = copy.querySelector(".mainImage");
+  const hoverImage = copy.querySelector(".hoverImage");
+  //change content
+  copy.querySelector(".price").textContent = `${garment.price_3days}`;
+  copy.querySelector(".name").textContent = `${garment.title.rendered}`;
+  copy
+      .querySelector("a")
+      .setAttribute("href", `/singlegarment/?id=${garment.id}`);
+  copy.querySelector(".mainImage").src = garment.main_image.guid;
+  copy.querySelector(".hoverImage").src = garment.main_image_hover.guid;
+
+  imageContainer.addEventListener("mouseover", function () {
+    mainImage.classList.add("hide");
+    hoverImage.classList.remove("hide");
+  });
+
+  // Add mouseout event listener to the image container
+  imageContainer.addEventListener("mouseout", function () {
+    mainImage.classList.remove("hide");
+    hoverImage.classList.add("hide");
+  });
+
+  const parent = document.querySelector(".garmentlist");
+  parent.appendChild(copy);
+}
 
 
 </script>

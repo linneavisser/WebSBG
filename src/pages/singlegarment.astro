@@ -5,23 +5,21 @@ import PrimaryButton from '../components/PrimaryButton.astro'
 import CartOverlay from '../components/CartOverlay.astro'
 ---
 <Layout>
-    <div class="breadcrumbs flex items-center mobileGrid desktopGrid overlinep">
-        <a href="/rental/">Rental</a>
-        <p class="overlinep">/</p>
-        <a class="name" href="#">Product Name</a>
-    </div>
+    
+    <div class="overlinep px-body-x py-space-32-48"> <a class="hover-underline-breadcrumb" href="/rental/">All Rentals</a> / <span class="name"> Product Name </span> </div>
 
         <div class="flex flex-col-reverse md:grid md:grid-cols-product relative">
-                <section class="flex flex-col px-body-x md:pl-body-x md:pr-[10rem] pt-space-32-48 gap-space-32-48">
+                <section class="flex flex-col px-body-x md:pl-body-x md:pr-[10rem]  gap-space-24-32">
 
-                    <div class="pt-space-24-32 flex flex-col gap-space-16-24">
+                    <div class="flex flex-col gap-space-8-16">
                         <p class="collection">Collection Name</p>
                         <h1 class="title">Name Of Product</h1>
+                        <p class="size">x</p>
                     </div>
 
 
                         <div>
-                            <p class="mediumBody">Rental Period</p>
+                            <p class="mediumBody">Choose rental period</p>
                               <div class="flex gap-4 pt-2">
                                   <button class="days accentSmallBody button3">3 days</button>
                                   <button class="days accentSmallBody button5">5 days</button>
@@ -30,46 +28,36 @@ import CartOverlay from '../components/CartOverlay.astro'
                         </div>
 
                         <div>
-                            <label class="mediumBody" for="start">Start date:</label>
-                                <div>
-                                    <input class="accentBody w-[9rem] border-black border-[1px] p-[0.5rem]" type="date" id="start" name="trip-start" value="2023-06-02" min="2023-06-01" max="2025-12-31">
+                            <label class="mediumBody" for="start">Choose a start date</label>
+                                <div class="pt-2">
+                                    <input class="accentSmallBody w-[9rem] border-black border-[1px] p-[0.3rem]" type="date" id="start" name="trip-start" value="2023-06-02" min="2023-06-01" max="2025-12-31">
                                 </div>
                         </div>
 
                             <div>
-                                <div class="flex gap-8">
-                                    <p class="mediumBody">Price</p>
-                                    <p id="placeholder" class="text-red-600 mediumBody">Choose rental period</p>
-                                    <p id="3days" class="hide mediumBody"> <span class="price3">1</span> dkk</p>
-                                    <p id="5days" class="hide mediumBody"> <span class="price5">1</span> dkk</p>
-                                    <p id="1week" class="hide mediumBody"> <span class="price1">1</span> dkk</p>
+                                <div class="flex gap-10 md:gap-7">
+                                    <p class="mediumBody">Price &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; </p>
+                                    <p id="placeholder" class="mediumBody">from <span class="placeholder">1</span> DKK</p>
+                                    <p id="3days" class="hide mediumBody"> <span class="price3">1</span> DKK </p>
+                                    <p id="5days" class="hide mediumBody"> <span class="price5">1</span> DKK </p>
+                                    <p id="1week" class="hide mediumBody"> <span class="price1">1</span> DKK </p>
                                 </div>
     
-                            <div class="flex gap-8">
+                            <div class="flex gap-8 pt-2">
                                 <p class="accentSmallBody">Value Price</p> 
-                                <p class="accentSmallBody"><span class="value">1</span> dkk</p>
+                                <p class="accentSmallBody"><span class="value">1</span> DKK</p>
                             </div>
                             </div>
 
-                        <div id="add" class="pt-space-24-32">
+                        <div id="add" class="pt-space-16-24">
                             <PrimaryButton link="/cart/" text="Add to cart" />
                         </div>
 
 
 
                           <div class="flex flex-col pt-space-24-32">
-                                <div>
-                                    <details>
-                                        <summary class="mediumBody flex flex-row-reverse justify-between">Product Description</summary>
-                                        <p class="details">x</p>
-                                      </details>
-                                </div>
-                                <div>
-                                    <details>
-                                        <summary class="mediumBody flex flex-row-reverse justify-between">Size & Fit</summary>
-                                        <p class="size">x</p>
-                                      </details>
-                                </div>
+                                
+                                
                                 <div>
                                     <details>
                                         <summary class="mediumBody flex flex-row-reverse justify-between">Material</summary>
@@ -83,9 +71,10 @@ import CartOverlay from '../components/CartOverlay.astro'
                                       </details>
                                 </div>
                     </div>
+                    <p class="details mediumBody">x</p>
     
             </section>
-        <section class="md:pl-[64px] md:pr-body-x md:py-[64px] h-[80vh] md:h-[100vh] md:top-0 sticky">
+        <section class="md:pl-[64px] md:pr-body-x md:pb-[64px] h-[90vh] md:h-[100vh] md:top-0 sticky">
             <ImgCarousel/>
         </section>
     </div>
@@ -143,7 +132,7 @@ details[open] > summary {
 
     }
     .days{
-        padding: 1rem 1rem;
+        padding: 0.5rem 0.5rem;
         border: 1px solid black;
     }
     .days:hover{
@@ -214,6 +203,8 @@ function showProduct(garment) {
     document.querySelector(".value").textContent =
     garment.value_price;
     document.querySelector(".price3").textContent =
+    garment.price_3days;
+    document.querySelector(".placeholder").textContent =
     garment.price_3days;
     document.querySelector(".price5").textContent =
     garment.price_5days;

@@ -1,9 +1,9 @@
  <!-- Begin Mailchimp Signup Form -->
-<div class="col-span-full pt-space-160-200 pb-space-80-160" id="mc_embed_signup">
+<div class="col-span-full pt-space-80-160 pb-space-80-160" id="mc_embed_signup">
     <form action="https://gmail.us12.list-manage.com/subscribe/post?u=8c95773bc034304cdb4ad18fd&amp;id=ad2beb0d6c&amp;f_id=002ab8e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self">
         <div id="mc_embed_signup_scroll">
-        <p class="accentBody">Subscribe to Newsletter</p>
-<div class="flex flex-col md:flex-row gap-6 md:items-end">
+        <p class="accentBody pb-space-32-48">Subscribe to Newsletter</p>
+<div class="flex flex-col md:flex-row gap-3 md:gap-5 md:items-end">
     <div class="mc-field-group">
     	<label class="hidden" for="mce-EMAIL"> e-mail
     </label>
@@ -18,7 +18,7 @@
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8c95773bc034304cdb4ad18fd_ad2beb0d6c" tabindex="-1" value=""></div>
         <div class="optionalParent">
             <div class="clear foot">
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="background-color: black; color:white; padding: 1rem 4rem; cursor:pointer;">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="myButton px-padding-button-x py-padding-button-y accentBody" style="background-color:black; color:white; cursor:pointer;">
                 <!-- <p class="brandingLogo"><a href="http://eepurl.com/irIefI" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p> -->
             </div>
         </div>
@@ -32,6 +32,16 @@
     input:focus {
         outline:none !important;
     }
+    .myButton:hover{
+        background-color: var(--color-hover);
+        transition: 0.3s ease-in-out;
+    }
+    input::placeholder {
+        font-family: var(--font-family-accent);
+  font-weight: var(--font-weight-light);
+    }
+    
+  
 </style>
 <script is:inline>
 

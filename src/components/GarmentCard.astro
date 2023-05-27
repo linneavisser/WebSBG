@@ -26,56 +26,56 @@
 
 <script is:inline>
 
+// // window.addEventListener("DOMContentLoaded", init);
 // window.addEventListener("DOMContentLoaded", init);
-window.addEventListener("DOMContentLoaded", init);
 
-function init(event) {
+// function init(event) {
 
-const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
+// const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
 
-fetch(url)
-.then(function(res){
-  return res.json();
-})
-.then(function(data){
-  handleProductList(data);
-});
+// fetch(url)
+// .then(function(res){
+//   return res.json();
+// })
+// .then(function(data){
+//   handleProductList(data);
+// });
 
-function handleProductList(data){
-  console.log(data)
-  data.forEach(showProduct);
-}
-}
+// function handleProductList(data){
+//   console.log(data)
+//   data.forEach(showProduct);
+// }
+// }
 
-function showProduct(garment){
-  console.log(garment);
-  const template = document.querySelector(".productlistTemplate").content;
-  const copy = template.cloneNode(true);
+// function showProduct(garment){
+//   console.log(garment);
+//   const template = document.querySelector(".productlistTemplate").content;
+//   const copy = template.cloneNode(true);
 
-  const imageContainer = copy.querySelector("#imageContainer");
-  const mainImage = copy.querySelector(".mainImage");
-  const hoverImage = copy.querySelector(".hoverImage");
-  //change content
-  copy.querySelector(".price").textContent = `${garment.price_3days}`;
-  copy.querySelector(".name").textContent = `${garment.title.rendered}`;
-  copy
-      .querySelector("a")
-      .setAttribute("href", `/singlegarment/?id=${garment.id}`);
-  copy.querySelector(".mainImage").src = garment.main_image.guid;
-  copy.querySelector(".hoverImage").src = garment.main_image_hover.guid;
+//   const imageContainer = copy.querySelector("#imageContainer");
+//   const mainImage = copy.querySelector(".mainImage");
+//   const hoverImage = copy.querySelector(".hoverImage");
+//   //change content
+//   copy.querySelector(".price").textContent = `${garment.price_3days}`;
+//   copy.querySelector(".name").textContent = `${garment.title.rendered}`;
+//   copy
+//       .querySelector("a")
+//       .setAttribute("href", `/singlegarment/?id=${garment.id}`);
+//   copy.querySelector(".mainImage").src = garment.main_image.guid;
+//   copy.querySelector(".hoverImage").src = garment.main_image_hover.guid;
 
-  imageContainer.addEventListener("mouseover", function () {
-    mainImage.classList.add("hide");
-    hoverImage.classList.remove("hide");
-  });
+//   imageContainer.addEventListener("mouseover", function () {
+//     mainImage.classList.add("hide");
+//     hoverImage.classList.remove("hide");
+//   });
 
-  // Add mouseout event listener to the image container
-  imageContainer.addEventListener("mouseout", function () {
-    mainImage.classList.remove("hide");
-    hoverImage.classList.add("hide");
-  });
+//   // Add mouseout event listener to the image container
+//   imageContainer.addEventListener("mouseout", function () {
+//     mainImage.classList.remove("hide");
+//     hoverImage.classList.add("hide");
+//   });
 
-  const parent = document.querySelector(".garmentlist");
-  parent.appendChild(copy);
-}
+//   const parent = document.querySelector(".garmentlist");
+//   parent.appendChild(copy);
+// }
         </script>
