@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <div class="overlinep px-body-x py-space-32-48"> <a class="hover-underline-breadcrumb" href="/rental/">Rental</a><span>/ </span> <a href="/">Checkout</a></div>
+<div class="mobileGrid desktopGrid">
+    <form name="Customer info" method="POST" class="col-span-full flex flex-col">
+      <div class="flex flex-col gap-1">
+           <label for="name">Name *</label>
+            <input type="text" name="name" placeholder="Please write your full name">
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="phone">Phone Number</label>
+         <input type="number" name="phone" placeholder="xx xx xx xx">
+   </div>
+
+    </form>
+
+
+
+</div>
+</Layout>
+
+<style>
+
+input[type=text]{
+    border: 1px solid gray;
+    padding: 10px 6px;
+}
+
+</style>
+
+<script  is:inline>
+
+</script>
