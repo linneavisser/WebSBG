@@ -11,7 +11,7 @@ import Emblem from '../svg/logo-emblem.svg'
           <li><a href="/about/" class="navLinks hover-underline-animation">About</a></li>
           <li><a href="/rental/" class="navLinks hover-underline-animation">Rental</a></li>
           <li><a href="/collections/" class="navLinks hover-underline-animation">Collections</a></li>
-          <li><a href="/cart/" class="navLinks hover-underline-animation">Cart</a></li>
+          <li><a id="cartMobile" class="navLinks hover-underline-animation cursor-pointer">Cart<span id="item" class="hide">(1)</span></a></li>
       </ul>
   </nav>
   </header>
@@ -24,7 +24,7 @@ import Emblem from '../svg/logo-emblem.svg'
         <li><a href="/rental/" class="navLinks hover-underline-animation">Rental</a></li>
         <li><a href="/"><img src={Emblem} alt="EmblemLogo" class="w-14"></a></li>
         <li><a href="/collections/" class="navLinks hover-underline-animation">Collections</a></li>
-        <li><a href="/cart/" class="navLinks hover-underline-animation">Cart</a></li>
+        <li><a id="cartDesktop" class="navLinks hover-underline-animation cursor-pointer">Cart<span id="item2" class="hide">(1)</span> </a></li>
     </ul>
 </nav>
 </header>
@@ -43,7 +43,9 @@ header{
         font-size: var(--font-size-body-btn);
       }
 
-    
+    .hide{
+      display: none;
+    }
 
 
 </style>

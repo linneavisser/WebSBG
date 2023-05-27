@@ -32,6 +32,7 @@ module.exports = {
         desktop: "repeat(12, 1fr)",
         product: "7fr 5fr",
         overlay: "9fr 3fr",
+        cart: "1fr 2fr",
       },
 
       colors:{
