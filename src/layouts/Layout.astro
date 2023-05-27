@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   cartBtn1.addEventListener('click', function() {
     overlay.classList.add('open');
+
   });
 
   cartBtn2.addEventListener('click', function() {
@@ -82,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   openBtn.addEventListener('click', function() {
     overlay.classList.add('open');
+	document.getElementById("item").classList.remove("hide");
+	document.getElementById("item2").classList.remove("hide");
   });
 });
 </script>
