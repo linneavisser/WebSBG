@@ -4,8 +4,8 @@ import "../styles/global.css"
 import Emblem from '../svg/logo-emblem.svg'
 ---
 <!-- MOBILE -->
-<header class="md:hidden flex flex-col  gap-8 pb-padding-header-y sticky top-padding-header-y"> 
- <a href="/" class="self-center"> <img src={Emblem} alt="Logo Emblem" class="self-center w-10"></a>
+<header class="md:hidden flex flex-col  gap-8 py-padding-header-y"> 
+ <a href="/" class="self-center"> <img src={Emblem} alt="Logo Emblem" class="self-center w-10 z-10"></a>
   <nav class=" px-body-x">
       <ul class="flex justify-between">
           <li><a href="/about/" class="navLinks hover-underline-animation">About</a></li>
@@ -17,7 +17,7 @@ import Emblem from '../svg/logo-emblem.svg'
   </header>
 
 <!-- DESKTOP -->
-<header class="hidden md:block pb-padding-header-y sticky top-padding-header-y"> 
+<header class="hidden md:block pb-padding-header-y sticky top-padding-header-y z-10"> 
 <nav class=" px-body-x">
     <ul class="flex justify-between">
         <li><a href="/about/" class="navLinks hover-underline-animation">About</a></li>
@@ -49,3 +49,7 @@ header{
 
 
 </style>
+
+<script is:inline'> 
+
+</script>
