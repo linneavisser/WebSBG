@@ -4,7 +4,7 @@ import "../styles/global.css"
 import Emblem from '../svg/logo-emblem.svg'
 ---
 <!-- MOBILE -->
-<header class="md:hidden flex flex-col  gap-8 pb-padding-header-y sticky top-padding-header-y"> 
+<header class="headerMobile md:hidden flex flex-col  gap-8 pb-padding-header-y sticky top-padding-header-y"> 
  <a href="/" class="self-center"> <img src={Emblem} alt="Logo Emblem" class="self-center w-10"></a>
   <nav class=" px-body-x">
       <ul class="flex justify-between">
@@ -49,3 +49,46 @@ header{
 
 
 </style>
+
+<script is:inline>
+
+const header = document.querySelector(".headerMobile");
+let lastScroll = 0;
+
+const throttle = (func, time = 100) => {
+  let lastTime = 0;
+  return () => {
+    const now = new Date();
+    if (now - lastTime >= time) {
+      func();
+      time = now;
+    }
+  };
+};
+
+const validateHeader = () => {
+  const windowY = window.scrollY;
+  const windowH = window.innerHeight;
+  if (windowY > windowH) {
+    // We passed the first section, set a toggable class
+    header.classList.add("is-fixed");
+    // Determine is we ready to animate
+    if (windowY > windowH + 40) {
+      header.classList.add("can-animate");
+      if (windowY < lastScroll) {
+        // Determine if we scrolling up
+        header.classList.add("scroll-up");
+      } else {
+        header.classList.remove("scroll-up");
+      }
+    } else {
+      header.classList.remove("scroll-up");
+    }
+  } else {
+    header.classList.remove("is-fixed", "can-animate");
+  }
+  lastScroll = windowY;
+};
+
+window.addEventListener("scroll", throttle(validateHeader, 100));
+</script>
