@@ -20,10 +20,20 @@ import Carousel3 from '../img/collectionpages/Shadow/shadowC3.webp';
     <!-- HERO -->
     <img src={ShadowH} alt="Detail image of fabric" class="md:hidden col-start-1 md:col-start-4 col-span-3 md:col-span-5 pb-space-32-48 md:rotate-90">
     <img src={ShadowH2} alt="Detail image of fabric" class="hidden md:block col-start-4 col-span-6 pb-space-32-48 ">
-<div class="col-span-full flex flex-col md:flex-row md:justify-between gap-space-32-48 row-start-3 pb-space-64-160px">
+<!-- <div class="col-span-full flex flex-col md:flex-row md:justify-between gap-space-32-48 row-start-3 pb-space-64-160px">
         <h1 class="">Shadow Collection</h1>
         <div class="w-[165px] h-[107px] bg-slate-400 self-end"></div>
-</div>
+</div> -->
+<div class=" md:grid md:grid-cols-3 col-span-full row-start-3 pb-space-64-160px">
+    <h1 class="py-space-32-48 col-span-2">Shadow Collection</h1>
+      <div class="grid relative justify-items-end">
+          <div id="clickMe" class=" md:my-space-32-48  small-img-top w-[165px] h-[107px] md:w-[211px] md:h-[137px] hover:scale-95 cursor-hovercursor transition duration-700 ease-in-out"></div>
+          <div id="overlay" class="hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px] bg-slate-100"></div>
+          <div id="secondOverlay" class="closeDiv modal hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px]"></div>
+      </div>  
+  </div>
+
+
 
 <img src={Shadow1} alt="Picture of top from Shadow collection" class="col-span-2 md:col-span-4 pb-8 md:pb-0 md:row-span-2">
 <p class="col-span-full md:col-span-5 md:col-start-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan enim eget ligula
@@ -59,5 +69,58 @@ import Carousel3 from '../img/collectionpages/Shadow/shadowC3.webp';
 
 
 <style>
+    /*OVERLAY*/
+
+.small-img-top{
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url('../img/collectionpages/Shadow/shadow-small-img.webp');
+}
+#overlay {
+  background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url('../img/collectionpages/Shadow/shadow-click2.webp');
+
+}
+
+.small-img-top:hover{
+  border: 1 solid black;
+    
+}
+
+.hide {
+  display: none;
+}
+    
 
 </style>
+
+
+<script is:inline>
+
+    function toggleDivOnClickOutside(clickMe, overlay) {
+      const button = document.getElementById(clickMe);
+      const div = document.getElementById(overlay);
+    
+      // Add click event listener to the button
+      button.addEventListener('click', function() {
+        // Toggle the display of the div
+        div.style.display = (div.style.display === 'block') ? 'none' : 'block';
+      });
+    
+      // Add click event listener to the document
+      document.addEventListener('click', function(event) {
+        const targetElement = event.target;
+    
+        // Check if the clicked element is outside the specified div and button
+        if (!div.contains(targetElement) && targetElement !== button) {
+          // Close the div
+          div.style.display = 'none';
+        }
+      });
+    }
+    
+    toggleDivOnClickOutside('clickMe', 'overlay');
+    </script>

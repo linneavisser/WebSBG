@@ -41,9 +41,6 @@ module.exports = {
         lightgrey: "#F5F5F5",
         mediumgrey: "#B3B3B3",
       },
-      cursor: {
-        hovercursor: "url(svg/process-cursor.svg) 100 100, pointer",
-      },
     },
   },
   plugins: [],
