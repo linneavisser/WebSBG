@@ -6,31 +6,11 @@
   /* FONT SIZES */
   --font-size-h1: clamp(2rem, 1.295774647887324rem + 3.004694835680751vw, 4rem);
   --font-size-h2: clamp(1.5rem, 2.254vw + 0.972rem, 3rem);
-  --font-size-h3: clamp(
-    1.25rem,
-    0.9859154929577465rem + 1.1267605633802815vw,
-    2rem
-  );
-  --font-size-h4-lg-body: clamp(
-    1.125rem,
-    0.9929577464788732rem + 0.5633802816901408vw,
-    1.5rem
-  );
-  --font-size-m-body: clamp(
-    1rem,
-    0.9119718309859155rem + 0.3755868544600939vw,
-    1.25rem
-  );
-  --font-size-body-btn: clamp(
-    0.875rem,
-    0.8309859154929577rem + 0.18779342723004694vw,
-    1rem
-  );
-  --font-size-xs: clamp(
-    0.65625rem,
-    0.6232394366197183rem + 0.1408450704225352vw,
-    0.75rem
-  );
+  --font-size-h3: clamp(1.25rem, 0.9859154929577465rem + 1.1267605633802815vw, 2rem);
+  --font-size-h4-lg-body: clamp( 1.125rem,0.9929577464788732rem + 0.5633802816901408vw, 1.5rem);
+  --font-size-m-body: clamp(1rem,0.9119718309859155rem + 0.3755868544600939vw, 1.25rem );
+  --font-size-body-btn: clamp(0.875rem,0.8309859154929577rem + 0.18779342723004694vw,1rem);
+  --font-size-xs: clamp(0.65625rem,0.6232394366197183rem + 0.1408450704225352vw,0.75rem );
 
   /* FONT WEIGHTS */
   --font-weight-light: 300;
