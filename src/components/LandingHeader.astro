@@ -42,7 +42,7 @@ import Emblem from '../svg/logo-emblem.svg'
     <img class="w-[8rem]" src={Emblem} alt="Emblem logo">
   </div>
 
-  <nav class="hidden md:block w-[55vw] sticky top-padding-header-y pb-padding-header-y m-auto">
+  <nav id="scrollDown" class="hidden md:block w-[55vw] sticky top-padding-header-y pb-padding-header-y m-auto z-10">
     <ul class="flex justify-between gap-16">
         <li><a href="/rental/" class="navLinks hover-underline-animation">Rental</a></li>
         <li><a href="/"><img src={Emblem} alt="EmblemLogo"></a></li>
@@ -69,3 +69,5 @@ nav{
 
 
 </style>
+
+<script is:inline></script>
