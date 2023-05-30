@@ -54,12 +54,12 @@ import Button from '../components/PrimaryButton.astro';
         <h2 class="'">Customer information</h2>
         <form name="Customer info" method="POST" class="col-span-full lg:col-span-4 flex flex-col gap-space-16-24">
           <div class="flex flex-col gap-1">
-               <label for="name">Name *</label>
-               <input type="text" name="name" placeholder="Please enter your full name" autocomplete="name" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+               <label for="fullname">Name *</label>
+               <input type="text" id="fullname" name="fullname" placeholder="Please enter your full name" autocomplete="name" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
              </div>
           <div class="flex flex-col gap-1">
-            <label for="phone">Phone Number</label>
-             <input type="number" name="phone" placeholder="xx xx xx xx" autocomplete="tel-national" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+            <label for="tel">Phone Number</label>
+             <input type="tel" id="tel" name="tel" placeholder="xx xx xx xx" autocomplete="tel-national" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
             </div>
              <div class="flex flex-col gap-1">
            <label for="email">Email *</label>
@@ -68,7 +68,7 @@ import Button from '../components/PrimaryButton.astro';
        <div class="flex flex-col gap-space-16-24 lg:flex-row  md:gap-6">
              <div class="flex flex-col gap-1 lg:w-[75%]">
                 <label for="address">Address *</label>
-                <input type="address" id="email" name="address" placeholder="Please enter your address" autocomplete="street-address"  class="px-1.5 py-2.5 border-[1px]  border-solid border-mediumgrey">
+                <input type="text" id="address" name="address" placeholder="Please enter your address" autocomplete="street-address"  class="px-1.5 py-2.5 border-[1px]  border-solid border-mediumgrey">
              </div>
              <div class="flex flex-col gap-1">
                 <label for="postcode">Postal code*</label>
@@ -78,11 +78,11 @@ import Button from '../components/PrimaryButton.astro';
       <div class="flex flex-col gap-space-16-24 md:flex-row  lg:gap-6">
              <div class="flex flex-col gap-1 lg:w-[50%]">
                 <label for="city">City *</label>
-                <input type="city" id="city" name="city" placeholder="Please enter your city" autocomplete="address-level2"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+                <input type="text" id="city" name="city" placeholder="Please enter your city" autocomplete="address-level2"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
              </div>
              <div class="flex flex-col gap-1 lg:w-[50%]">
                 <label for="country">Country *</label>
-                <input type="country" id="country" name="country" placeholder="Denmark" disabled  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+                <input type="text" id="country" name="country" placeholder="Denmark" disabled  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
              </div>
       </div>
          <!-- SHIPPING OPTIONS BOX -->
