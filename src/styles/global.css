@@ -85,7 +85,7 @@ h1 {
   text-transform: uppercase;
   font-weight: var(--font-weight-regular) !important;
   letter-spacing: 5px;
-  line-height: var(--line-height-h1);
+  line-height: var(--line-height-h1) !important;
 }
 
 .colh1 {
@@ -94,16 +94,16 @@ h1 {
   font-weight: var(--font-weight-regular) !important;
   text-transform: none !important;
   letter-spacing: 5px;
-  line-height: var(--line-height-h4-lg-body);
+  line-height: var(--line-height-h4-lg-body) !important;
 }
 
 .alth1 {
-  font-family: var(--font-family-main);
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-main); 
+  font-size: var(--font-size-h2) !important;
+  font-weight: var(--font-weight-semibold) !important;
   text-transform: uppercase;
   letter-spacing: 5px;
-  line-height: var(--line-height-h2);
+  line-height: var(--line-height-h2) !important;
 }
 
 h2 {
