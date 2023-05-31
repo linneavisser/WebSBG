@@ -17,10 +17,17 @@ import Video from '../img/collectionpages/Contra/ContraHclip.mp4';
     </div>
     <!-- HERO VIDEO -->
     <video src={HeroVideo} autoplay loop class="m-auto w-[75vw]"></video>
-
+    <div class="px-body-x md:grid md:grid-cols-2">
+        <h1 class="py-space-32-48">The Contrapposto Concept</h1>
+          <div class="grid relative justify-items-end">
+              <div id="clickMe" class=" md:my-space-32-48  small-img-top w-[165px] h-[107px] md:w-[211px] md:h-[137px] hover:scale-95 cursor-hovercursor transition duration-700 ease-in-out"></div>
+              <div id="overlay" class="hide absolute  md:my-space-32-48 w-[311px] h-[200px] md:w-[440px]  md:h-[300px] bg-slate-100"></div>
+              
+          </div>  
+      </div>
 <div class="mobileGrid desktopGrid">
-    <h1 class="col-span-4 md:col-span-7 py-space-32-48 md:pb-0">The Contrapposto Concept</h1>
-    <div class="col-start-3 md:col-start-10 md:mt-space-32-48 col-span-2 md:col-span-3 w-[165px] md:w-[211px] h-[107px] md:h-[137px] bg-slate-400 mb-space-64-160px"></div>
+    <!-- <h1 class="col-span-4 md:col-span-7 py-space-32-48 md:pb-0">The Contrapposto Concept</h1>
+    <div class="col-start-3 md:col-start-10 md:mt-space-32-48 col-span-2 md:col-span-3 w-[165px] md:w-[211px] h-[107px] md:h-[137px] bg-slate-400 mb-space-64-160px"></div> -->
 
 <img src={Contra1} alt="Picture of dress from Contrapposto Project" class="col-span-2 md:col-span-4 pb-8 md:pb-0">
 <p class="mediumBody col-span-full md:col-span-6 md:col-start-6 md:self-center">Project focusing on concept- and shape development by combining analog and digital pattern construction with draping. Dogma rules for shaping inspired by the contrapposto posture used in ancient Greek sculpture art.</p>
@@ -85,4 +92,57 @@ import Video from '../img/collectionpages/Contra/ContraHclip.mp4';
     background-position: center;
     background-repeat: no-repeat;
 }
+/*OVERLAY*/
+
+.small-img-top{
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url('../img/collectionpages/Contra/contra-small-img.webp');
+    border: var(--color-light-grey) 1.2px solid ;
+}
+#overlay {
+  background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url('../img/collectionpages/Contra/contra-click-small.webp');
+    border: var(--color-light-grey) 1.2px solid ;
+
+}
+
+.small-img-top:hover{
+  border: 1 solid black;
+    
+}
+
+.hide {
+  display: none;
+}
 </style>
+
+<script is:inline>
+
+function toggleDivOnClickOutside(clickMe, overlay) {
+  const button = document.getElementById(clickMe);
+  const div = document.getElementById(overlay);
+
+  // Add click event listener to the button
+  button.addEventListener('click', function() {
+    // Toggle the display of the div
+    div.style.display = (div.style.display === 'block') ? 'none' : 'block';
+  });
+
+  // Add click event listener to the document
+  document.addEventListener('click', function(event) {
+    const targetElement = event.target;
+
+    // Check if the clicked element is outside the specified div and button
+    if (!div.contains(targetElement) && targetElement !== button) {
+      // Close the div
+      div.style.display = 'none';
+    }
+  });
+}
+
+toggleDivOnClickOutside('clickMe', 'overlay');
+</script>

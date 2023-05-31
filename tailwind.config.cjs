@@ -35,12 +35,12 @@ module.exports = {
         cart: "1fr 2fr",
       },
 
-      colors:{
-        "lightgrey" : "var(--color-light-grey)",
-        "mediumgrey": "var(--color-medium-grey)",
+      colors: {
+        lightgrey: "var(--color-light-grey)",
+        mediumgrey: "var(--color-medium-grey)",
         lightgrey: "#F5F5F5",
-        mediumgrey: "#B3B3B3"
-      }
+        mediumgrey: "#B3B3B3",
+      },
     },
   },
   plugins: [],
