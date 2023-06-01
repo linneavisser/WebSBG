@@ -52,10 +52,10 @@ import Button from '../components/PrimaryButton.astro';
     <!-- form -->
  <div class="col-span-full flex flex-col pt-space-64-80 gap-space-32-48 lg:col-start-2 md:col-span-6 lg:row-start-1">
         <h2 class="'">Customer information</h2>
-        <form name="Customer info" method="POST" data-netlify="true" class="col-span-full lg:col-span-4 flex flex-col gap-space-16-24">
+        <form name="Customer info" action="/success/" method="POST" data-netlify="true" class="col-span-full lg:col-span-4 flex flex-col gap-space-16-24">
           <div class="flex flex-col gap-1">
                <label for="fullname">Name *</label>
-               <input type="text" id="fullname" name="fullname" placeholder="Please enter your full name" autocomplete="name" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+               <input  required type="text" id="fullname" name="fullname" placeholder="Please enter your full name" autocomplete="name" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
              </div>
           <div class="flex flex-col gap-1">
             <label for="tel">Phone Number</label>
@@ -63,32 +63,32 @@ import Button from '../components/PrimaryButton.astro';
             </div>
              <div class="flex flex-col gap-1">
            <label for="email">Email *</label>
-           <input type="email" id="email" name="email" placeholder="Please enter your email"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey" autocomplete="email">
+           <input  required type="email" id="email" name="email" placeholder="Please enter your email"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey" autocomplete="email">
          </div>
        <div class="flex flex-col gap-space-16-24 lg:flex-row  md:gap-6">
              <div class="flex flex-col gap-1 lg:w-[75%]">
                 <label for="address">Address *</label>
-                <input type="text" id="address" name="address" placeholder="Please enter your address" autocomplete="street-address"  class="px-1.5 py-2.5 border-[1px]  border-solid border-mediumgrey">
+                <input required type="text" id="address" name="address" placeholder="Please enter your address" autocomplete="street-address"  class="px-1.5 py-2.5 border-[1px]  border-solid border-mediumgrey">
              </div>
              <div class="flex flex-col gap-1">
                 <label for="postcode">Postal code*</label>
-                <input type="number" id="postcode" name="postcode" placeholder="f.ex. 2100" autocomplete="postal-code"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey w-32">
+                <input  required type="number" id="postcode" name="postcode" placeholder="f.ex. 2100" autocomplete="postal-code"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey w-32">
              </div>
        </div>
       <div class="flex flex-col gap-space-16-24 md:flex-row  lg:gap-6">
              <div class="flex flex-col gap-1 lg:w-[50%]">
                 <label for="city">City *</label>
-                <input type="text" id="city" name="city" placeholder="Please enter your city" autocomplete="address-level2"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+                <input  required type="text" id="city" name="city" placeholder="Please enter your city" autocomplete="address-level2"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
              </div>
              <div class="flex flex-col gap-1 lg:w-[50%]">
                 <label for="country">Country *</label>
-                <input type="text" id="country" name="country" placeholder="Denmark" disabled  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+                <input  required type="text" id="country" name="country" placeholder="Denmark" disabled  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
              </div>
       </div>
          <!-- SHIPPING OPTIONS BOX -->
          <div class="flex flex-col gap-4 pt-space-64-80">
             <h3>Shipping options</h3>
-            <div class="bg-lightgrey flex justify-between lg:justify-start lg:gap-24 py-8 px-6">
+            <div class="bg-lightgrey flex justify-between lg:justify-start lg:gap-24 py-space-16-24 px-6">
                <div class="flex flex-row-reverse gap-3 ">
                  <label for="pickup" class="mt-1">Pick up</label>
                  <input type="radio" name="shippingOptions" id="pickup" class="w-5">
@@ -99,43 +99,32 @@ import Button from '../components/PrimaryButton.astro';
                     </div>
                  </div>
          </div>
-         <!-- PAYMENT METHOD BOX mobile-->
-         <div class="flex flex-col gap-4 pt-space-32-48 lg:hidden">
+         <!-- PAYMENT METHOD-->
+         <div class=" pt-space-32-48">
             <h3>Payment method</h3>
-            <div class="bg-lightgrey flex flex-col gap-8 py-8 px-6">
-               <div class="flex justify-between">
-                   <div class="flex flex-row-reverse gap-3 ">
-                        <label for="mobilepay" class="mt-1">MobilePay</label>
-                        <input type="radio" name="paymentOptions" id="mobilepay" class="w-5">
-                   </div>
-                   <div class="flex flex-row-reverse gap-3">
-                      <label for="banktransfer" class="mt-1">Bank transfer</label>
-                       <input type="radio" name="paymentOptions" id="banktransfer" class="w-5">
-                    </div>
-                 </div>
-                <div class="flex flex-row-reverse gap-3 justify-end">
-                    <label for="pay" class="mt-1">Pay at pick up</label>
-                    <input type="radio" name="paymentOptions" id="pay" class="w-5">
+            <div class="bg-lightgrey flex flex-col gap-8 py-space-16-24 px-6">
+                <label for="card">Card number*</label>
+                <input type="text" name="card" maxlength="19" inputmode="numeric" pattern="[0-9s]{13,19}" placeholder="XXXX XXXX XXXX XXXX" required>
+                <label for="expdate" >Exp. date*</label>
+                <div class="">
+                  <input autocomplete="off" class="" id="month" maxlength="2" pattern="[0-9]*" inputmode="numeric" placeholder="MM" type="text" data-pattern-validate>
+                  <input autocomplete="off" class="" id="year" maxlength="2" pattern="[0-9]*" inputmode="numeric" placeholder="YY" type="text" data-pattern-validate>
                 </div>
+      
+                <label for="ccv">ccv*</label>
+                <input type="text" name="CCV" placeholder="CCV" maxlength="3" pattern="[0-9]*" required class="w-[60%] lg:w-[40%]">
+                <label for="name" class="">Name on card*</label>
+                <input type="text" name="name" placeholder="Enter cardholder name" class="lg:w-[60%]">
+                
+                <label for="billingadd" class="">Billing address*</label>
+      
+                <div class="flex ">
+                  <input class="regular-checkbox " type="checkbox" checked="checked" name="sameadr">
+                  <p class="text-form-inputandlabel pl-3">
+                    Shipping address same as billing
+                  </p>
             </div>
         </div>
-            <!-- PAYMENT DESKTOP -->
-        <div class="hidden lg:flex flex-col gap-4 pt-space-64-80">
-            <h3>Payment method</h3>
-            <div class="bg-lightgrey flex justify-between py-8 px-6">
-                <div class="flex flex-row-reverse gap-3 ">
-                    <label for="mobilepay" class="mt-1">MobilePay</label>
-                    <input type="radio" name="paymentOptions" id="mobilepay" class="w-5">
-               </div>
-               <div class="flex flex-row-reverse gap-3">
-                <label for="banktransfer" class="mt-1">Bank transfer</label>
-                 <input type="radio" name="paymentOptions" id="banktransfer" class="w-5">
-              </div>
-              <div class="flex flex-row-reverse gap-3 justify-end">
-                <label for="pay" class="mt-1">Pay at pick up</label>
-                <input type="radio" name="paymentOptions" id="pay" class="w-5">
-            </div>
-         </div>
         </div>
         <div class="grid"><button type=submit class="self-center myButton button px-padding-button-x py-padding-button-y mt-space-32-48 hover:bg-colorhover bg-black text-white m-auto">Confirm order</button></div>
     </form>
@@ -154,6 +143,36 @@ button p{
     font-size: 10px;
     font-weight: var(--font-weight-light);
 }
+
+input {
+    outline: none;
+
+}
+input:focus {
+ 
+  border: solid 1.5px black;
+}
+
+/* input:focus:invalid {
+    border: solid 1.5px red;
+
+} */
+
+input:required:valid{
+    background: url("../svg/icons/check-ring.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 95%;
+    padding-right: 10px;
+}
+/* input:autofill{
+    background: url("../svg/icons/check-ring.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 95%;
+    padding-right: 10px;
+} */
+
 </style>
 
 <script  is:inline>
