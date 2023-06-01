@@ -61,9 +61,12 @@ import Button from '../components/PrimaryButton.astro';
             <label for="tel">Phone Number</label>
              <input type="tel" id="tel" name="tel" placeholder="xx xx xx xx" autocomplete="tel-national" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
             </div>
-             <div class="flex flex-col gap-1">
-           <label for="email">Email *</label>
-           <input  required type="email" id="email" name="email" placeholder="Please enter your email"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey" autocomplete="email">
+             <div class="flex flex-col gap-4">
+           <div class="flex flex-col gap-1">
+               <label for="email">Email *</label>
+               <input  required type="email" id="email" name="email" placeholder="Please enter your email"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey" autocomplete="email">
+           </div>
+           <div class="flex gap-3"><input class="regular-checkbox w-[20px] rounded-none" type="checkbox" id="newsletter" name="newsletter" value="newsletter"><label for="newsletter" class="pt-[0.3rem]">Subscribe to newsletter </label></div>
          </div>
        <div class="flex flex-col gap-space-16-24 lg:flex-row  md:gap-6">
              <div class="flex flex-col gap-1 lg:w-[75%]">
@@ -129,8 +132,8 @@ import Button from '../components/PrimaryButton.astro';
                 <label for="billingadd" class="">Billing address*</label>
       
                 <div class="flex">
-                  <input class="regular-checkbox " type="checkbox" checked="checked" name="sameadr">
-                  <p class="text-form-inputandlabel pl-3">
+                  <input class="regular-checkbox w-[20px]" type="checkbox" checked="checked" name="sameadr">
+                  <p class="text-form-inputandlabel pl-3 pt-[0.3rem]">
                     Shipping address same as billing
                   </p>
                  </div>
