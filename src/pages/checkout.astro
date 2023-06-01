@@ -100,32 +100,43 @@ import Button from '../components/PrimaryButton.astro';
                  </div>
          </div>
          <!-- PAYMENT METHOD-->
-         <div class=" pt-space-32-48">
-            <h3>Payment method</h3>
-            <div class="bg-lightgrey flex flex-col gap-8 py-space-16-24 px-6">
-                <label for="card">Card number*</label>
-                <input type="text" name="card" maxlength="19" inputmode="numeric" pattern="[0-9s]{13,19}" placeholder="XXXX XXXX XXXX XXXX" required>
-                <label for="expdate" >Exp. date*</label>
-                <div class="">
-                  <input autocomplete="off" class="" id="month" maxlength="2" pattern="[0-9]*" inputmode="numeric" placeholder="MM" type="text" data-pattern-validate>
-                  <input autocomplete="off" class="" id="year" maxlength="2" pattern="[0-9]*" inputmode="numeric" placeholder="YY" type="text" data-pattern-validate>
+         <!-- PAYMENT METHOD-->
+         <div class="pt-space-32-48">
+            <h3 class="pb-4">Payment method</h3>
+           
+            <div class="bg-lightgrey col-span-full lg:col-span-4 flex flex-col gap-space-16-24 py-space-16-24  px-6">
+                <div class="flex flex-col gap-1">
+                    <label for="name" class="">Name on card*</label>
+                    <input type="text" name="name" placeholder="Enter cardholder name" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
                 </div>
-      
-                <label for="ccv">ccv*</label>
-                <input type="text" name="CCV" placeholder="CCV" maxlength="3" pattern="[0-9]*" required class="w-[60%] lg:w-[40%]">
-                <label for="name" class="">Name on card*</label>
-                <input type="text" name="name" placeholder="Enter cardholder name" class="lg:w-[60%]">
+
+               <div class="flex flex-col gap-1">
+                <label for="card">Card number*</label>
+                <input class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey" type="text" name="card" maxlength="19" inputmode="numeric" pattern="[0-9s]{13,19}" placeholder="XXXX XXXX XXXX XXXX" required>
+               </div>
+              <div class="flex flex-row gap-8">
+             <div class="flex flex-col gap-1"> 
+                <label for="expdate" >Exp*</label>
                 
+                    <input class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey" autocomplete="off" type="text"  id="inputExpDate" placeholder="MM / YY" maxlength='7'>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="ccv">CCV*</label>
+                <input type="text" name="CCV" placeholder="CCV" maxlength="3" pattern="[0-9]*" required class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
+               </div>
+              </div>
+              <div class="flex flex-col gap-1">
                 <label for="billingadd" class="">Billing address*</label>
       
-                <div class="flex ">
+                <div class="flex">
                   <input class="regular-checkbox " type="checkbox" checked="checked" name="sameadr">
                   <p class="text-form-inputandlabel pl-3">
                     Shipping address same as billing
                   </p>
+                 </div>
+              </div>
             </div>
-        </div>
-        </div>
+          </div>
         <div class="grid"><button type=submit class="self-center myButton button px-padding-button-x py-padding-button-y mt-space-32-48 hover:bg-colorhover bg-black text-white m-auto">Confirm order</button></div>
     </form>
 </div>
