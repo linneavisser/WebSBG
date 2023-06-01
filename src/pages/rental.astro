@@ -5,9 +5,39 @@ import Garment from '../components/GarmentCard.astro'
 ---
 <Layout>
 <div class="mobileGrid desktopGrid">
-    <section class="md:col-span-5 col-span-4 sticky md:top-space-80-160 top-0 md:h-[70vh] bg-white">
-
-    <p class="accentBody pb-2 border-b-[1px] border-black">Filters</p>
+    <section id="filters" class="md:col-span-5 col-span-4 sticky md:top-space-80-160 top-0 md:h-[70vh] bg-white">
+    <details open class="">
+            <summary class="accentBody pb-2 border-b-[1px] border-black flex flex-row-reverse justify-between "><span>Filters</span></summary>
+            <div class="grid gap-1 pt-2  md:pt-4">
+                <div class="parentFilters flex col-span-full justify-between md:pb-3">
+                    <template id="parentCategoryTemplate">
+                        <div class="">
+                            <a class="accentBody hover-underline-breadcrumb" href="/rental/">
+                            </a>
+                        </div>
+                    </template>
+                </div>
+                 <div class="flex justify-between pb-2">
+                            <div class="collFilter flex flex-col md:gap-3 gap-1">
+                                <template id="collCategoryTemplate">
+                                    <div class="">
+                                        <a class="accentBody hover-underline-breadcrumb" href="/rental/">
+                                        </a>
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="typeFilter flex flex-col md:gap-3 pr-12 md:pr-16 gap-1">
+                                <template id="typeCategoryTemplate">
+                                    <div class="">
+                                        <a class="accentBody hover-underline-breadcrumb" href="/rental/">
+                                        </a>
+                                    </div>
+                                </template>
+                            </div>
+                   </div>
+               </div>
+    </details>
+    <!-- <p class="accentBody pb-2 border-b-[1px] border-black">Filters</p>
     <div class="flex flex-col gap-1 pt-2  md:pt-4">
         <div class="parentFilters flex col-span-full justify-between md:pb-3">
             <template id="parentCategoryTemplate">
@@ -38,7 +68,7 @@ import Garment from '../components/GarmentCard.astro'
                     </div>
                     
          </div>
-       </div>
+       </div> -->
     </section>
 
     <section class="md:col-start-7 md:col-span-6 grid grid-cols-2 md:gap-x-6  md:gap-y-8 garmentlist col-span-4 ">
@@ -48,11 +78,36 @@ import Garment from '../components/GarmentCard.astro'
 </Layout>
 
 <style>
+/* plus minus */
+
+details{
+    cursor: pointer;
+}
+details > summary {
+    list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+details > summary::before {
+    content: '+';
+    font-weight: var(--font-weight-light);
+}
+
+details[open] > summary::before {
+    content: '-';
+    font-weight: var(--font-weight-light);
+}
+
 
     
 </style>
 
 <script is:inline>
+
+
 window.addEventListener("load", setup);
     const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/";
     function setup(){
@@ -171,5 +226,6 @@ function setupGarments(garmentArray){
   parent.appendChild(copy);
 })
 }
+
 
 </script>
