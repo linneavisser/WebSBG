@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import SingleLayout from '../layouts/SingleLayout.astro'
 import ImgCarousel from '../components/ImgCarousel.astro'
 import PrimaryButton from '../components/PrimaryButton.astro'
 import CartOverlay from '../components/CartOverlay.astro'
 ---
-<Layout>
+<SingleLayout>
     
     <div class="overlinep px-body-x py-space-24-32"> <a class="hover-underline-breadcrumb" href="/rental/">All Rentals</a> / <span class="name"> Product Name </span> </div>
 
@@ -79,11 +79,11 @@ import CartOverlay from '../components/CartOverlay.astro'
         </section>
     </div>
 
-    <!-- <section id="cartOverlay" class="cartOverlay grid w-[100vw] md:w-[26vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
+    <section id="cartOverlay" class=" z-20 cartOverlay grid w-[100vw] md:w-[37vw] lg:w-[25vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
         <CartOverlay/>
-    </section> -->
+    </section>
 
-</Layout>
+</SingleLayout>
 
 <style>
 
@@ -158,17 +158,29 @@ details[open] > summary {
         display: none;
     }
 
-    /* @media screen and (max-width: 768px) {
-  .cartOverlay{
-    right: auto;
-    transition: top 1s ease-in-out;
-    top: -100%;
-}
-
-    .cartOverlay.open {
-    top: 0;
-}
-} */
+    .cartOverlay{
+            right: -50%;
+            transition: right 1s ease-in-out;
+        }
+        
+        .cartOverlay.open {
+          right: 0;
+        }
+        .cartContainer{
+            z-index: 800 !important;
+        }
+        
+        @media screen and (max-width: 768px) {
+          .cartOverlay{
+            right: auto;
+            transition: top 1s ease-in-out;
+            top: -100%;
+        }
+        
+            .cartOverlay.open {
+            top: 0;
+        }
+        }
 </style>
 
 <script is:inline>
@@ -213,6 +225,15 @@ function showProduct(garment) {
     document.querySelector(".img1").src = garment.main_image.guid;
     document.querySelector(".img2").src = garment.main_image_hover.guid;
     document.querySelector(".img3").src = garment.additional_image.guid;
+
+    //CART
+    document.querySelector(".cartImage").src = garment.main_image.guid;
+    document.querySelector(".titleText").textContent =
+    garment.title.rendered;
+    document.querySelector(".cartPrice").textContent =
+    garment.price_3days;
+    document.querySelector(".cartTotal").textContent =
+    garment.price_3days;
 }
 
 document.querySelector(".button3").addEventListener("click", displayPrice3);
@@ -239,28 +260,32 @@ function displayPrice1(){
     document.getElementById("placeholder").classList.add("hide");
 }
 
-// //CART OVERLAY FUNCTION
-// document.addEventListener('DOMContentLoaded', function() {
-//   var openBtn = document.getElementById('add');
-//   var cartBtn1 = document.getElementById('cartMobile');
-//   var cartBtn2 = document.getElementById('cartDesktop');
-//   var overlay = document.getElementById('cartOverlay');
-//   var closeBtn = document.getElementById('close');
-
-//   openBtn.addEventListener('click', function() {
-//     overlay.classList.add('open');
-//   });
-
-//   cartBtn1.addEventListener('click', function() {
-//     overlay.classList.add('open');
-//   });
-
-//   cartBtn2.addEventListener('click', function() {
-//     overlay.classList.add('open');
-//   });
-
-//   closeBtn.addEventListener('click', function() {
-//     overlay.classList.remove('open');
-//   });
-// });
+  //CART OVERLAY FUNCTION
+  document.addEventListener('DOMContentLoaded', function() {
+          var cartBtn1 = document.getElementById('cartMobile');
+          var cartBtn2 = document.getElementById('cartDesktop');
+          var overlay = document.getElementById('cartOverlay');
+          var closeBtn = document.getElementById('close');
+          var openBtn = document.getElementById('add');
+        
+        
+          cartBtn1.addEventListener('click', function() {
+            overlay.classList.add('open');
+        
+          });
+        
+          cartBtn2.addEventListener('click', function() {
+            overlay.classList.add('open');
+          });
+        
+          closeBtn.addEventListener('click', function() {
+            overlay.classList.remove('open');
+          });
+        
+          openBtn.addEventListener('click', function() {
+            overlay.classList.add('open');
+            document.getElementById("item").classList.remove("hide");
+            document.getElementById("item2").classList.remove("hide");
+          });
+        });
 </script>
