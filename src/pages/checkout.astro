@@ -65,6 +65,7 @@ import Button from '../components/PrimaryButton.astro';
            <div class="flex flex-col gap-1">
                <label for="email">Email *</label>
                <input  required type="email" id="email" name="email" placeholder="Please enter your email"  class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey" autocomplete="email">
+               <p class="overlinep error-message">Please enter a valid email</p>
            </div>
            <div class="flex gap-3"><input class="regular-checkbox w-[20px] rounded-none" type="checkbox" id="newsletter" name="newsletter" value="newsletter"><label for="newsletter" class="pt-[0.3rem]">Subscribe to newsletter </label></div>
          </div>
@@ -176,9 +177,22 @@ input:required:valid{
     background: url("../svg/icons/check-ring.svg");
     background-size: 20px;
     background-repeat: no-repeat;
-    background-position: 95%;
-    padding-right: 10px;
+    background-position: 92%;
 }
+input:not(:focus):not(:placeholder-shown):invalid {
+    background: url("../svg/icons/error.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 98%;
+}
+.error-message {
+  display: none;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
+  display: block; 
+}
+
 /* input:autofill{
     background: url("../svg/icons/check-ring.svg");
     background-size: 20px;
