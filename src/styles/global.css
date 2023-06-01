@@ -175,6 +175,7 @@ label {
 .accentBody {
   font-family: var(--font-family-accent);
   font-weight: var(--font-weight-light);
+  font-size: var(--font-size-body-btn);
 }
 
 .accentSmallBody {
