@@ -1,7 +1,6 @@
 ---
 import Close from '../svg/icons/close.svg'
 import Placeholder from '../img/landing/dress-brown.webp'
-import PrimaryButton from '../components/PrimaryButton.astro'
 ---
 
 
@@ -17,12 +16,12 @@ import PrimaryButton from '../components/PrimaryButton.astro'
     
                 <div class="grid grid-cols-cart border-b-[1px] border-mediumgrey pb-space-16-24">
                     <div class="imgcontainer md:px-space-8-16 px-space-32-48">
-                        <img src={Placeholder} alt="dress">
+                        <img class="cartImage" src="" alt="dress">
                     </div>
                     <div class="info flex flex-col justify-between">
                         <div>
-                            <p class="accentBody title">Abjection T-shirt</p>
-                            <p class="accentSmallBody"><span class="price">800</span> DKK</p>
+                            <p class="accentBody titleText"></p>
+                            <p class="accentSmallBody"><span class="cartPrice"></span> DKK</p>
                         </div>
                         <div>
                             <p class="dates overlinep ">21/7 - 24/7 (3 Days)</p>
@@ -37,7 +36,7 @@ import PrimaryButton from '../components/PrimaryButton.astro'
             <div class="pt-space-16-24 border-t-[1px] border-mediumgrey flex flex-col justify-between gap-space-32-48">
                 <div class="flex justify-between">
                     <p>Subtotal</p>
-                    <p><span class="price">800</span> DKK</p>
+                    <p><span class="cartTotal"></span> DKK</p>
                 </div> 
                 <div class=" m-auto flex justify-center bg-black text-white py-padding-button-y px-padding-button-x hover:bg-colorhover"> <a class="button" href="/checkout/"> Checkout</a> </div>
             </div>
@@ -46,5 +45,11 @@ import PrimaryButton from '../components/PrimaryButton.astro'
     </div>
 
 
-<style>
-</style>
+    <style>
+      
+        </style>
+        
+        <script is:inline>
+        
+        </script>
+        
