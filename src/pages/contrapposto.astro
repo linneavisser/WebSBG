@@ -25,31 +25,35 @@ import Video from '../img/collectionpages/Contra/ContraHclip.mp4';
               
           </div>  
       </div>
-<div class="mobileGrid desktopGrid">
+
     <!-- <h1 class="col-span-4 md:col-span-7 py-space-32-48 md:pb-0">The Contrapposto Concept</h1>
     <div class="col-start-3 md:col-start-10 md:mt-space-32-48 col-span-2 md:col-span-3 w-[165px] md:w-[211px] h-[107px] md:h-[137px] bg-slate-400 mb-space-64-160px"></div> -->
 
-<img src={Contra1} alt="Picture of dress from Contrapposto Project" class="col-span-2 md:col-span-4 pb-8 md:pb-0">
-<p class="mediumBody col-span-full md:col-span-6 md:col-start-6 md:self-center">Project focusing on concept- and shape development by combining analog and digital pattern construction with draping. Dogma rules for shaping inspired by the contrapposto posture used in ancient Greek sculpture art.</p>
+<section class="mobileGrid desktopGrid reveal">
+  <img src={Contra1} alt="Picture of dress from Contrapposto Project" class="col-span-2 md:col-span-4 pb-8 md:pb-0">
+  <p class="mediumBody col-span-full md:col-span-6 md:col-start-6 md:self-center">Project focusing on concept- and shape development by combining analog and digital pattern construction with draping. Dogma rules for shaping inspired by the contrapposto posture used in ancient Greek sculpture art.</p>
+</section>
 
 <!-- <div class="hidden md:flex gap-space-gutter col-start-7 col-span-6">
     <img src={Contra2} alt="inverted picture of the dress" class="h-auto w-auto max-w-[326px] max-h-[482px]">
     <img src={Contra3} alt="black and white picture of the dress" class="h-auto w-auto max-w-[326px] max-h-[482px]">
     </div>     -->
-    <div class="hidden md:flex gap-space-gutter col-start-7 col-span-6">
-        <div class="img1 h-[70vh] w-[50vw]"></div>
-        <div class="img2 h-[70vh] w-[50vw]"></div>
-     </div>
+<section class="mobileGrid desktopGrid reveal">
+      <div class="hidden md:flex gap-space-gutter col-start-7 col-span-6">
+          <div class="img1 h-[70vh] w-[50vw]"></div>
+          <div class="img2 h-[70vh] w-[50vw]"></div>
+       </div>
+</section>
 
-    <div class="hidden md:flex gap-space-gutter col-start-1 col-span-5 pt-10">
-        <img src={Contra5} alt="Picture of coat from collection" class="h-auto w-auto max-w-[326px] max-h-[482px]">
-        <img src={Contra4} alt="Picture of coat and dress peeking through from collection" class="h-auto w-auto max-w-[211px] max-h-[275px] self-end">
-        </div>    
-
-</div>
+<section class="mobileGrid desktopGrid reveal">
+      <div class="hidden md:flex gap-space-gutter col-start-1 col-span-5 pt-10">
+          <img src={Contra5} alt="Picture of coat from collection" class="h-auto w-auto max-w-[326px] max-h-[482px]">
+          <img src={Contra4} alt="Picture of coat and dress peeking through from collection" class="h-auto w-auto max-w-[211px] max-h-[275px] self-end">
+          </div>    
+</section>
 
 <!-- mobile  -->
-<div class="mobileGrid md:hidden pt-16">
+<div class="mobileGrid md:hidden pt-16 reveal">
 <div class="flex col-span-full gap-space-gutter pb-space-gutter">
    <div class="img1 h-[45vh] w-[45vw]"></div>
    <div class="img2 h-[45vh] w-[45vw]"></div>
@@ -145,4 +149,22 @@ function toggleDivOnClickOutside(clickMe, overlay) {
 }
 
 toggleDivOnClickOutside('clickMe', 'overlay');
+
+    //  SCROLL IN OPACITY ANIMATION
+    function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 100;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", reveal);
+reveal();
 </script>
