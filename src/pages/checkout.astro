@@ -52,7 +52,7 @@ import Button from '../components/PrimaryButton.astro';
     <!-- form -->
  <div class="col-span-full flex flex-col pt-space-64-80 gap-space-32-48 lg:col-start-2 md:col-span-6 lg:row-start-1">
         <h2 class="'">Customer information</h2>
-        <form name="Customer info" method="POST" data-netlify="true" class="col-span-full lg:col-span-4 flex flex-col gap-space-16-24">
+        <form name="Customer info" action="/success/" method="POST" data-netlify="true" class="col-span-full lg:col-span-4 flex flex-col gap-space-16-24">
           <div class="flex flex-col gap-1">
                <label for="fullname">Name *</label>
                <input type="text" id="fullname" name="fullname" placeholder="Please enter your full name" autocomplete="name" class="px-1.5 py-2.5 border-[1px] border-solid border-mediumgrey">
