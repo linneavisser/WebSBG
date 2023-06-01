@@ -1,7 +1,5 @@
 ---
 import Close from '../svg/icons/close.svg'
-import Placeholder from '../img/landing/dress-brown.webp'
-import PrimaryButton from '../components/PrimaryButton.astro'
 ---
 
 
@@ -16,36 +14,8 @@ import PrimaryButton from '../components/PrimaryButton.astro'
                 <h3 class="pb-space-32-48">Your Cart</h3>
     
                 
-                    <div class="grid grid-cols-cart border-b-[1px] border-mediumgrey pb-space-16-24">
-                        <div class="imgcontainer md:px-space-8-16 px-space-32-48">
-                            <img class="cartImage" src="" alt="dress">
-                        </div>
-                        <div class="info flex flex-col justify-between">
-                            <div>
-                                <p class="accentBody titleText"></p>
-                                <p class="accentSmallBody"><span class="cartPrice"></span> DKK</p>
-                            </div>
-                            <div>
-                                <p class="dates overlinep ">21/7 - 24/7 (3 Days)</p>
-                            </div>
-                            <button class="remove underline accentSmallBody flex justify-end">
-                                Remove item
-                            </button>
-                        </div>
             
                 </div>
-            </div>
-
-            <div class="pt-space-16-24 border-t-[1px] border-mediumgrey flex flex-col justify-between gap-space-32-48">
-                <div>
-                    <div class="flex justify-between">
-                        <p>Subtotal</p>
-                        <div>
-                            <p class=""><span class="cartPlaceholder"></span> DKK</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class=" m-auto flex justify-center bg-black text-white py-padding-button-y px-padding-button-x hover:bg-colorhover"> <a class="button" href="/checkout/"> Checkout</a> </div>
             </div>
             
         </div>
@@ -53,10 +23,6 @@ import PrimaryButton from '../components/PrimaryButton.astro'
 
 
     <style>
-
-        .hide{
-            display:none;
-        }
         .cartOverlay{
             right: -50%;
             transition: right 1s ease-in-out;

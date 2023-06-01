@@ -79,9 +79,9 @@ import CartOverlay from '../components/CartOverlay.astro'
         </section>
     </div>
 
-    <!-- <section id="cartOverlay" class="cartOverlay grid w-[100vw] md:w-[26vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
+    <section id="cartOverlay" class=" z-20 cartOverlay grid w-[100vw] md:w-[37vw] lg:w-[25vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
         <CartOverlay/>
-    </section> -->
+    </section>
 
 </Layout>
 
@@ -213,6 +213,15 @@ function showProduct(garment) {
     document.querySelector(".img1").src = garment.main_image.guid;
     document.querySelector(".img2").src = garment.main_image_hover.guid;
     document.querySelector(".img3").src = garment.additional_image.guid;
+
+
+    document.querySelector(".cartImage").src = garment.main_image.guid;
+    document.querySelector(".titleText").textContent =
+    garment.title.rendered;
+    document.querySelector(".cartPrice").textContent =
+    garment.price_3days;
+    document.querySelector(".cartPlaceholder").textContent =
+    garment.price_3days;
 }
 
 document.querySelector(".button3").addEventListener("click", displayPrice3);

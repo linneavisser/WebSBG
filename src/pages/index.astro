@@ -12,6 +12,7 @@ import Pants from '../img/landing/pants.webp'
 import Shadow from '../img/landing/shadow.webp'
 import Tshirt from '../img/landing/t-shirt-hover2.webp'
 import Newsletter from '../components/Newsletter.astro'
+import OtherCart from '../components/OtherCart.astro'
 
 
 ---
@@ -193,6 +194,9 @@ import Newsletter from '../components/Newsletter.astro'
             <Newsletter/>
         </div>
 
+        <section id="cartOverlay" class=" z-20 cartOverlay grid w-[100vw] md:w-[37vw] lg:w-[25vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
+            <OtherCart/>
+        </section>
 
 
 </LandingLayout>
