@@ -26,7 +26,7 @@ import Newsletter from '../components/Newsletter.astro'
         </div>
     </div>
 
-    <div class="mobileGrid desktopGrid pt-p-l reveal">
+    <div class="mobileGrid desktopGrid pt-p-l">
         <p class="col-span-3 col-start-2 md:col-start-6 md:col-span-7 lg:col-start-7 lg:col-span-6 ">Text about concept. Pharetra sed mauris lorem adipiscing amet lacus libero amet. Libero euismod accumsan ante et turpis faucibus eget amet. Scelerisque ac morbi rutrum varius varius in. Pretium ultrices sit sit odio turpis cursus orci.</p>
     </div>
 
@@ -48,7 +48,7 @@ import Newsletter from '../components/Newsletter.astro'
 
     <!-- Desktop top layout -->
 
-            <div class="desktopGrid pt-p-2xl items-center reveal">
+            <div class="desktopGrid pt-p-2xl items-center">
                 <div class="hidden hover-img md:grid col-span-6 h-[425px]"></div>
                 <div class="hidden hover-img2 md:grid col-start-8 col-span-5  h-[333px]"></div>
             </div>
@@ -234,22 +234,6 @@ import Newsletter from '../components/Newsletter.astro'
 
 <script is:inline>
 
-    //  SCROLL IN OPACITY ANIMATION
-function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 100;
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("active");
-      } else {
-        reveals[i].classList.remove("active");
-      }
-    }
-  }
 
-  window.addEventListener("scroll", reveal);
-reveal();
 </script>
 
