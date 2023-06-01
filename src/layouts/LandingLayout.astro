@@ -2,6 +2,7 @@
 import "../styles/global.css"
 import LandingHeader from '../components/LandingHeader.astro';
 import Footer from '../components/Footer.astro';
+import CartOverlay from '../components/CartOverlay.astro';
 
 ---
 
@@ -25,13 +26,71 @@ import Footer from '../components/Footer.astro';
 		<main>
 			<slot />
 
-
+			<section id="cartOverlay" class=" z-20 cartOverlay grid w-[100vw] md:w-[37vw] lg:w-[25vw] h-[80vh] md:h-[100vh] md:top-0 fixed">
+				<CartOverlay/>
+			</section>
+		
 		</main>
         <Footer />
 	</body>
 </html>
 
 <style>
-</style>
+	.cartOverlay{
+		right: -50%;
+		transition: right 1s ease-in-out;
+	}
+	
+	.cartOverlay.open {
+	  right: 0;
+	}
+	.cartContainer{
+		z-index: 800 !important;
+	}
+	
+	@media screen and (max-width: 768px) {
+	  .cartOverlay{
+		right: auto;
+		transition: top 1s ease-in-out;
+		top: -100%;
+	}
+	
+		.cartOverlay.open {
+		top: 0;
+	}
+	}
+	</style>
+	
+	<script is:inline>
+		//CART OVERLAY FUNCTION
+	document.addEventListener('DOMContentLoaded', function() {
+	  var cartBtn1 = document.getElementById('cartMobile');
+	  var cartBtn2 = document.getElementById('cartDesktop');
+	  var overlay = document.getElementById('cartOverlay');
+	  var closeBtn = document.getElementById('close');
+	  var openBtn = document.getElementById('add');
+	
+	
+	  cartBtn1.addEventListener('click', function() {
+		overlay.classList.add('open');
+	
+	  });
+	
+	  cartBtn2.addEventListener('click', function() {
+		overlay.classList.add('open');
+	  });
+	
+	  closeBtn.addEventListener('click', function() {
+		overlay.classList.remove('open');
+	  });
+	
+	  openBtn.addEventListener('click', function() {
+		overlay.classList.add('open');
+		document.getElementById("item").classList.remove("hide");
+		document.getElementById("item2").classList.remove("hide");
+	  });
+	});
+	</script>
+	
 
 

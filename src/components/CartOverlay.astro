@@ -5,7 +5,7 @@ import PrimaryButton from '../components/PrimaryButton.astro'
 ---
 
 
-    <div id="cartContainer" class=" p-space-24-32 bg-lightgrey md:col-start-2 col-start-1 col-span-full w-full 
+    <div id="cartContainer" class=" z-10 p-space-24-32 bg-lightgrey md:col-start-2 col-start-1 col-span-full w-full 
     border-b-[1px] border-mediumgrey md:border-l-[1px] md:border-mediumgrey">
         <div class="flex justify-between flex-col h-full">
 
@@ -39,7 +39,7 @@ import PrimaryButton from '../components/PrimaryButton.astro'
                     <p>Subtotal</p>
                     <p><span class="price">800</span> DKK</p>
                 </div> 
-                <div class="flex justify-center"><PrimaryButton text="Checkout"/></div>
+                <div class=" m-auto flex justify-center bg-black text-white py-padding-button-y px-padding-button-x hover:bg-colorhover"> <a class="button" href="/checkout/"> Checkout</a> </div>
             </div>
             
         </div>

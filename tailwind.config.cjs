@@ -24,7 +24,6 @@ module.exports = {
         "space-gutter": "var(--space-grid-gutter)",
         "padding-button-x": "var( --padding-button-x)",
         "padding-button-y": "var( --padding-button-y)",
-        "colo-hover": "var(--color-gray);",
       },
 
       gridTemplateColumns: {
@@ -40,6 +39,7 @@ module.exports = {
         mediumgrey: "var(--color-medium-grey)",
         lightgrey: "#F5F5F5",
         mediumgrey: "#B3B3B3",
+        colorhover: "var(--color-gray)",
       },
     },
   },
