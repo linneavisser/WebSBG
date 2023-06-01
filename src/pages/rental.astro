@@ -28,20 +28,19 @@ import Garment from '../components/GarmentCard.astro'
 
     <p class="accentBody pb-2 border-b-[1px] border-black">Filters</p>
     <div class="flex flex-col gap-1 pt-2  md:pt-4">
-        <div class="parentFilters flex col-span-full justify-between md:pb-3">
+        <div class="parentFilters flex flex-col col-span-full justify-between md:pb-3">
             <template id="parentCategoryTemplate">
                 <div class="">
-                    <a href="productlist.html?categories">
-                        <p class="accentBody hover-underline-breadcrumb"></p>
+                    <a class="accentBody hover-underline-breadcrumb" href="/rental/">
                     </a>
                 </div>
             </template>
         </div>
-         <div class="flex justify-between pb-2">
+         <!-- <div class="flex justify-between pb-2">
                     <div class="collFilter flex flex-col md:gap-3 gap-1">
                         <template id="collCategoryTemplate">
                             <div class="">
-                                <a href="productlist.html?categories">
+                                <a href="/rental/">
                                     <p class=" accentSmallBody hover-underline-breadcrumb"></p>
                                 </a>
                             </div>
@@ -52,56 +51,15 @@ import Garment from '../components/GarmentCard.astro'
                     <div class="typeFilter flex flex-col md:gap-3 pr-12 md:pr-16 gap-1">
                         <template id="categoryTemplate">
                             <div class="">
-                                <a href="productlist.html?categories">
+                                <a href="/rental/">
                                     <p class="accentSmallBody hover-underline-breadcrumb"></p>
                                 </a>
                             </div>
                         </template>
                     </div>
                     
-         </div>
+         </div> -->
        </div>
-
-        <!-- <div class="border-b-[1px] border-black">
-            <p class="accentBody pb-2">Filters</p>
-            
-        </div>
-       
-           
-           <div class="flex flex-col gap-5  md:pt-6">
-            <div class="parentFilters flex md:gap-48 col-span-full">
-                <template id="parentCategoryTemplate">
-                    <div class="">
-                        <a href="productlist.html?categories">
-                            <p class="accentBody hover-underline-breadcrumb"></p>
-                        </a>
-                    </div>
-                </template>
-            </div>
-             <div class="flex md:gap-20">
-                        <div class="collFilter flex flex-col md:gap-5 md:pl-3">
-                            <template id="collCategoryTemplate">
-                                <div class="">
-                                    <a href="productlist.html?categories">
-                                        <p class="accentBody hover-underline-breadcrumb"></p>
-                                    </a>
-                                </div>
-                            </template>
-                        </div>
-        
-        
-                        <div class="typeFilter flex flex-col md:gap-5">
-                            <template id="categoryTemplate">
-                                <div class="">
-                                    <a href="productlist.html?categories">
-                                        <p class="accentBody hover-underline-breadcrumb"></p>
-                                    </a>
-                                </div>
-                            </template>
-                        </div>
-                        
-             </div>
-           </div> -->
 
             <div>
                 <img class="hidden md:flex" src={Tshirt} alt="tshirt">
@@ -120,130 +78,87 @@ import Garment from '../components/GarmentCard.astro'
 </style>
 
 <script is:inline>
-//     window.addEventListener("load", Categories);
-//     const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/"
-//     function Categories(){
-//     getParentCategories();
-// }
-window.addEventListener("load", Categories);
-    const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/"
-    function Categories(){
-    getCollCategories();
+window.addEventListener("load", setup);
+    const endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/";
+    function setup(){
     getParentCategories();
-    getItemCategories();
 }
+
 function getParentCategories(){
- fetch(endpoint + "categories?parent=1")
- .then(res => res.json())
+ fetch(endpoint + "categories?parents=28,18&_fields.name&orderby=id")
+ .then((res) => res.json())
  .then(setupParentCategories);
-//  getTheGarment();
 }
 
-function getCollCategories(){
- fetch(endpoint + "categories?parent=19")
- .then(res => res.json())
- .then(setupCategories);
-//  getTheGarment();
+function getTheGarment(){
+const searchParams = new URLSearchParams(window.location.search);
+const id = searchParams.get("id");
+let endpoint = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment?per_page=100&_embed";
+
+if (id){
+    endpoint = endpoint + "&categories[]=" + id;
 }
 
-function getItemCategories(){
- fetch(endpoint + "categories?parent=18")
- .then(res => res.json())
- .then(setupItemCategories);
-//  getTheGarment();
+fetch(endpoint)
+.then((res) => res.json())
+.then(setupGarments);
 }
-
-// function  getTheGarment(){
-//     fetch("https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment")
-//     .then(res => res.json())
-//     .then(setupGarment)
-// }
 
 
 function setupParentCategories(catArray){
     const template = document.querySelector("#parentCategoryTemplate").content;
     const parentElement = document.querySelector(".parentFilters");
-    catArray.forEach(cat => {
+    catArray.forEach((cat) => {
         const copy = template.cloneNode(true);
-        copy.querySelector("p").textContent=cat.name;
+        copy.querySelector("a").textContent = cat.name;
         copy
-            .querySelector("a")
-            .setAttribute("href", `/rental/?parent=${cat.id}`);
-            // .setAttribute("href", "/rental/category=" + `${cat.id}`);
+            .querySelector("a").href = "?id=" + cat.id;
+            
+           
         parentElement.appendChild(copy);
-    })
+    });
+
+    getTheGarment();
+
 }
 
 
-function setupCategories(catArray){
-    const template = document.querySelector("#collCategoryTemplate").content;
-    const parentElement = document.querySelector(".collFilter");
-    catArray.forEach(cat => {
-        const copy = template.cloneNode(true);
-        copy.querySelector("p").textContent=cat.name;
-        copy
-            .querySelector("a")
-            .setAttribute("href", `/rental/?parents=${cat.id}`);
-            // .setAttribute("href", "/rental/category=" + `${cat.id}`);
-        parentElement.appendChild(copy);
-    })
-}
-
-function setupItemCategories(catArray){
-    const template = document.querySelector("#categoryTemplate").content;
-    const parentElement = document.querySelector(".typeFilter");
-    catArray.forEach(cat => {
-        const copy = template.cloneNode(true);
-        copy.querySelector("p").textContent=cat.name;
-        copy
-            .querySelector("a")
-            .setAttribute("href", `/rental/?parents=${cat.id}`);
-        parentElement.appendChild(copy);
-    })
-}
-
-// function setupGarment(garmentArray){
-//     const template = document.querySelector(".productlistTemplate").content;
-//     const parentElement = document.querySelector(".productlist");
-//     garmentArray.forEach(garment => {
+// function setupCategories(catArray){
+//     const template = document.querySelector("#collCategoryTemplate").content;
+//     const parentElement = document.querySelector(".collFilter");
+//     catArray.forEach(cat => {
 //         const copy = template.cloneNode(true);
-//         copy.querySelector(".price").textContent = `${garment.price_3days}`;
-//         copy.querySelector(".name").textContent = `${garment.title.rendered}`;
+//         copy.querySelector("p").textContent=cat.name;
 //         copy
-//         .querySelector("a")
-//         .setAttribute("href", `/productview/?id=${garment.id}`);
-//         copy.querySelector(".mainImage").src = garment.main_image.guid;
+//         .querySelector("a").href = "?id" + cat.id;
+
 //         parentElement.appendChild(copy);
-//     })
+//     });
+
 // }
 
-//FETCHING ALL GARMENTS /
-window.addEventListener("DOMContentLoaded", init);
+// function setupItemCategories(catArray){
+//     const template = document.querySelector("#categoryTemplate").content;
+//     const parentElement = document.querySelector(".typeFilter");
+//     catArray.forEach(cat => {
+//         const copy = template.cloneNode(true);
+//         copy.querySelector("p").textContent=cat.name;
+//         copy
+//         .querySelector("a").href = "?id" + cat.id;
+//             // .querySelector("a")
+//             // .setAttribute("href", `/rental/?parents=${cat.id}`);
+//         parentElement.appendChild(copy);
+//     });
+//     getTheGarment();
+// }
 
-function init(event) {
 
-const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
+function setupGarments(garmentArray){
+    const template = document.querySelector(".productlistTemplate").content;
 
-fetch(url)
-.then(function(res){
-  return res.json();
-})
-.then(function(data){
-  handleProductList(data);
-});
-
-function handleProductList(data){
-  console.log(data)
-  data.forEach(showProduct);
-}
-}
-
-function showProduct(garment){
-  console.log(garment);
-  const template = document.querySelector(".productlistTemplate").content;
-  const copy = template.cloneNode(true);
-
-  const imageContainer = copy.querySelector("#imageContainer");
+    garmentArray.forEach((garment) =>{
+        const copy = template.cloneNode(true);
+        const imageContainer = copy.querySelector("#imageContainer");
   const mainImage = copy.querySelector(".mainImage");
   const hoverImage = copy.querySelector(".hoverImage");
   //change content
@@ -268,7 +183,77 @@ function showProduct(garment){
 
   const parent = document.querySelector(".garmentlist");
   parent.appendChild(copy);
+})
 }
+
+
+// function setupGarment(garmentArray){
+//     const template = document.querySelector(".productlistTemplate").content;
+//     const parentElement = document.querySelector(".productlist");
+//     garmentArray.forEach(garment => {
+//         const copy = template.cloneNode(true);
+//         copy.querySelector(".price").textContent = `${garment.price_3days}`;
+//         copy.querySelector(".name").textContent = `${garment.title.rendered}`;
+//         copy
+//         .querySelector("a")
+//         .setAttribute("href", `/productview/?id=${garment.id}`);
+//         copy.querySelector(".mainImage").src = garment.main_image.guid;
+//         parentElement.appendChild(copy);
+//     })
+// }
+
+//FETCHING ALL GARMENTS /
+// window.addEventListener("DOMContentLoaded", init);
+
+// function init(event) {
+
+// const url = "https://evelinafalander.com/sallybjerregaarde/wp-json/wp/v2/garment";
+
+// fetch(url)
+// .then(function(res){
+//   return res.json();
+// })
+// .then(function(data){
+//   handleProductList(data);
+// });
+
+// function handleProductList(data){
+//   console.log(data)
+//   data.forEach(showProduct);
+// }
+// }
+
+// function showProduct(garment){
+//   console.log(garment);
+//   const template = document.querySelector(".productlistTemplate").content;
+//   const copy = template.cloneNode(true);
+
+//   const imageContainer = copy.querySelector("#imageContainer");
+//   const mainImage = copy.querySelector(".mainImage");
+//   const hoverImage = copy.querySelector(".hoverImage");
+//   //change content
+//   copy.querySelector(".price").textContent = `${garment.price_3days}`;
+//   copy.querySelector(".name").textContent = `${garment.title.rendered}`;
+//   copy
+//       .querySelector("a")
+//       .setAttribute("href", `/singlegarment/?id=${garment.id}`);
+//   copy.querySelector(".mainImage").src = garment.main_image.guid;
+//   copy.querySelector(".hoverImage").src = garment.main_image_hover.guid;
+
+//   imageContainer.addEventListener("mouseover", function () {
+//     mainImage.classList.add("hide");
+//     hoverImage.classList.remove("hide");
+//   });
+
+//   // Add mouseout event listener to the image container
+//   imageContainer.addEventListener("mouseout", function () {
+//     mainImage.classList.remove("hide");
+//     hoverImage.classList.add("hide");
+//   });
+
+//   const parent = document.querySelector(".garmentlist");
+//   parent.appendChild(copy);
+// }
 
 
 </script>
